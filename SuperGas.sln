@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperGas", "SuperGas\SuperGas.csproj", "{A3F9EC8E-E60A-4C49-B14E-706520996874}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{589FFF04-6F44-4391-86D4-3DD243EEC665}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3F9EC8E-E60A-4C49-B14E-706520996874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F9EC8E-E60A-4C49-B14E-706520996874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F9EC8E-E60A-4C49-B14E-706520996874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F9EC8E-E60A-4C49-B14E-706520996874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{589FFF04-6F44-4391-86D4-3DD243EEC665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{589FFF04-6F44-4391-86D4-3DD243EEC665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{589FFF04-6F44-4391-86D4-3DD243EEC665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{589FFF04-6F44-4391-86D4-3DD243EEC665}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8790D7ED-D9B0-45AC-8AF2-0E499388F437}
+	EndGlobalSection
+EndGlobal
