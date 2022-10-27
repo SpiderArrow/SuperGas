@@ -1,5 +1,4 @@
-﻿using Data.Mapas._helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
@@ -7,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Models.Vehiculos
+namespace Data.Models.Facturas
 {
-    public class TipoCombustible
+    public class TipoMovimiento
     {
         [Key]
         public int Id { get; set; }
@@ -17,43 +16,36 @@ namespace Data.Models.Vehiculos
         public bool IsActive { get; set; }
 
 
-        public List<MapaEntity> Listado(bool? estado)
+        public List<TipoMovimiento> Listado(bool? estado)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
-                    var lista = ctx.TiposCombustibles.ToList();
+                    var lista = ctx.TipoMovimientos.ToList();
                     if (lista.Any())
-                        if (estado != null)
-                            lista = lista.Where(x => x.IsActive == Convert.ToBoolean(estado)).ToList();
+                        if(estado != null)
+                            return lista.Where(x => x.IsActive == Convert.ToBoolean(estado)).ToList();
                         else
-                            lista = lista.ToList();
+                            return lista.ToList();
                     else
-                        return new List<MapaEntity>();
-
-                    return lista.Select(x => new MapaEntity
-                    {
-                        Id = x.Id,
-                        Descripcion = x.Descripcion,
-                        Estado = x.IsActive ? "Activo" : "Desactivado"
-                    }).ToList();
+                        return new List<TipoMovimiento>();
                 }
             }
             catch
             {
-                return new List<MapaEntity>();
+                return new List<TipoMovimiento>();
             }
         }
 
 
-        public TipoCombustible Get(long Id)
+        public TipoMovimiento GetTipoMovimiento(long Id)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
-                    return ctx.TiposCombustibles.Where(x => x.Id == Id).FirstOrDefault();
+                    return ctx.TipoMovimientos.Where(x => x.Id == Id).FirstOrDefault();
                 }
             }
             catch
@@ -62,13 +54,13 @@ namespace Data.Models.Vehiculos
             }
         }
 
-        public string Insert(TipoCombustible tc)
+        public string Insert(TipoMovimiento TipoMovimiento)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
-                    ctx.Entry(tc).State = EntityState.Added;
+                    ctx.Entry(TipoMovimiento).State = EntityState.Added;
                     ctx.SaveChanges();
                     return "";
                 }
@@ -79,13 +71,30 @@ namespace Data.Models.Vehiculos
             }
         }
 
-        public string Update(TipoCombustible tc)
+        public string Update(TipoMovimiento TipoMovimiento)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
-                    ctx.Entry(tc).State = EntityState.Modified;
+                    ctx.Entry(TipoMovimiento).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                    return "";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string Delete(TipoMovimiento TipoMovimiento)
+        {
+            try
+            {
+                using (var ctx = new ModelContext())
+                {
+                    ctx.Entry(TipoMovimiento).State = EntityState.Deleted;
                     ctx.SaveChanges();
                     return "";
                 }

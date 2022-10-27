@@ -28,5 +28,16 @@ namespace SuperGas.Forms.modulo_Distribucion
             FormBase parent = this.ParentForm as FormBase;
             parent.GestionDistribucion();
         }
+
+        private void BtnConfiguracion_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmConfiguracion"] == null)
+            {
+                FrmConfiguracion config = new FrmConfiguracion();
+                config.Show();
+            }
+            else
+                Application.OpenForms["FrmConfiguracion"].Activate();
+        }
     }
 }

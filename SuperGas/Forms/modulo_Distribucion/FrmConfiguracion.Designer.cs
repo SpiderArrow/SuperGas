@@ -1,5 +1,5 @@
 ﻿
-namespace SuperGas.Forms.modulo_Gasolineras
+namespace SuperGas.Forms.modulo_Distribucion
 {
     partial class FrmConfiguracion
     {
@@ -29,7 +29,6 @@ namespace SuperGas.Forms.modulo_Gasolineras
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguracion));
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,27 +45,22 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnActivar = new System.Windows.Forms.ToolStripButton();
             this.DgvModels = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mapaEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.LbEntity = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TxtDescripcion = new System.Windows.Forms.TextBox();
-            this.LbPadre = new System.Windows.Forms.Label();
-            this.CbPadre = new System.Windows.Forms.ComboBox();
+            this.LbCombo2 = new System.Windows.Forms.Label();
+            this.LbCombo1 = new System.Windows.Forms.Label();
+            this.CbCombo1 = new System.Windows.Forms.ComboBox();
             this.PnlFormulario = new System.Windows.Forms.Panel();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CbCombo2 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnCerrar)).BeginInit();
             this.TsConfiguracion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvModels)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mapaEntityBindingSource)).BeginInit();
             this.PnlFormulario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,17 +202,9 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.DgvModels.AllowUserToAddRows = false;
             this.DgvModels.AllowUserToDeleteRows = false;
             this.DgvModels.AllowUserToResizeRows = false;
-            this.DgvModels.AutoGenerateColumns = false;
             this.DgvModels.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.DgvModels.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.DgvModels.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvModels.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.DgvModels.DataSource = this.mapaEntityBindingSource;
             this.DgvModels.Dock = System.Windows.Forms.DockStyle.Left;
             this.DgvModels.Location = new System.Drawing.Point(0, 50);
             this.DgvModels.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -227,52 +213,6 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.DgvModels.Size = new System.Drawing.Size(377, 280);
             this.DgvModels.TabIndex = 13;
             this.DgvModels.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvModels_CellClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PadreId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "PadreId";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 79;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Padre";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Padre";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            this.dataGridViewTextBoxColumn3.Width = 68;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 104;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Estado";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 73;
-            // 
-            // mapaEntityBindingSource
-            // 
-            this.mapaEntityBindingSource.DataSource = typeof(Data.Mapas._helpers.MapaEntity);
             // 
             // BtnCancelar
             // 
@@ -284,7 +224,7 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.BtnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.ForeColor = System.Drawing.Color.Black;
             this.BtnCancelar.Image = global::SuperGas.Properties.Resources.Close_red_16x;
-            this.BtnCancelar.Location = new System.Drawing.Point(150, 173);
+            this.BtnCancelar.Location = new System.Drawing.Point(150, 225);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(108, 29);
             this.BtnCancelar.TabIndex = 34;
@@ -303,7 +243,7 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.Color.Black;
             this.BtnGuardar.Image = global::SuperGas.Properties.Resources.SaveStatusBar1_16x;
-            this.BtnGuardar.Location = new System.Drawing.Point(36, 173);
+            this.BtnGuardar.Location = new System.Drawing.Point(36, 225);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(108, 29);
             this.BtnGuardar.TabIndex = 33;
@@ -325,56 +265,51 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.LbEntity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LbEntity.Visible = false;
             // 
-            // label5
+            // LbCombo2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(33, 109);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 17);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Descripción:";
+            this.LbCombo2.AutoSize = true;
+            this.LbCombo2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbCombo2.ForeColor = System.Drawing.Color.Black;
+            this.LbCombo2.Location = new System.Drawing.Point(33, 106);
+            this.LbCombo2.Name = "LbCombo2";
+            this.LbCombo2.Size = new System.Drawing.Size(70, 17);
+            this.LbCombo2.TabIndex = 37;
+            this.LbCombo2.Text = "Combo2:";
+            this.LbCombo2.Visible = false;
             // 
-            // TxtDescripcion
+            // LbCombo1
             // 
-            this.TxtDescripcion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescripcion.Location = new System.Drawing.Point(36, 129);
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Size = new System.Drawing.Size(228, 27);
-            this.TxtDescripcion.TabIndex = 38;
+            this.LbCombo1.AutoSize = true;
+            this.LbCombo1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbCombo1.ForeColor = System.Drawing.Color.Black;
+            this.LbCombo1.Location = new System.Drawing.Point(33, 45);
+            this.LbCombo1.Name = "LbCombo1";
+            this.LbCombo1.Size = new System.Drawing.Size(70, 17);
+            this.LbCombo1.TabIndex = 40;
+            this.LbCombo1.Text = "Combo1:";
+            this.LbCombo1.Visible = false;
             // 
-            // LbPadre
+            // CbCombo1
             // 
-            this.LbPadre.AutoSize = true;
-            this.LbPadre.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbPadre.ForeColor = System.Drawing.Color.Black;
-            this.LbPadre.Location = new System.Drawing.Point(33, 45);
-            this.LbPadre.Name = "LbPadre";
-            this.LbPadre.Size = new System.Drawing.Size(79, 17);
-            this.LbPadre.TabIndex = 40;
-            this.LbPadre.Text = "Categoria:";
-            this.LbPadre.Visible = false;
-            // 
-            // CbPadre
-            // 
-            this.CbPadre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbPadre.FormattingEnabled = true;
-            this.CbPadre.Location = new System.Drawing.Point(36, 66);
-            this.CbPadre.Name = "CbPadre";
-            this.CbPadre.Size = new System.Drawing.Size(228, 29);
-            this.CbPadre.TabIndex = 41;
-            this.CbPadre.Visible = false;
+            this.CbCombo1.Enabled = false;
+            this.CbCombo1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbCombo1.FormattingEnabled = true;
+            this.CbCombo1.Location = new System.Drawing.Point(36, 66);
+            this.CbCombo1.Name = "CbCombo1";
+            this.CbCombo1.Size = new System.Drawing.Size(228, 29);
+            this.CbCombo1.TabIndex = 41;
             // 
             // PnlFormulario
             // 
             this.PnlFormulario.AutoScroll = true;
+            this.PnlFormulario.Controls.Add(this.TxtCodigo);
+            this.PnlFormulario.Controls.Add(this.label2);
+            this.PnlFormulario.Controls.Add(this.CbCombo2);
             this.PnlFormulario.Controls.Add(this.panel1);
             this.PnlFormulario.Controls.Add(this.LbEntity);
-            this.PnlFormulario.Controls.Add(this.CbPadre);
-            this.PnlFormulario.Controls.Add(this.TxtDescripcion);
-            this.PnlFormulario.Controls.Add(this.LbPadre);
-            this.PnlFormulario.Controls.Add(this.label5);
+            this.PnlFormulario.Controls.Add(this.CbCombo1);
+            this.PnlFormulario.Controls.Add(this.LbCombo1);
+            this.PnlFormulario.Controls.Add(this.LbCombo2);
             this.PnlFormulario.Controls.Add(this.BtnCancelar);
             this.PnlFormulario.Controls.Add(this.BtnGuardar);
             this.PnlFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -382,6 +317,36 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.PnlFormulario.Name = "PnlFormulario";
             this.PnlFormulario.Size = new System.Drawing.Size(288, 280);
             this.PnlFormulario.TabIndex = 42;
+            this.PnlFormulario.Visible = false;
+            // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigo.Location = new System.Drawing.Point(36, 192);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(228, 27);
+            this.TxtCodigo.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(33, 171);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Código:";
+            // 
+            // CbCombo2
+            // 
+            this.CbCombo2.Enabled = false;
+            this.CbCombo2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbCombo2.FormattingEnabled = true;
+            this.CbCombo2.Location = new System.Drawing.Point(36, 130);
+            this.CbCombo2.Name = "CbCombo2";
+            this.CbCombo2.Size = new System.Drawing.Size(228, 29);
+            this.CbCombo2.TabIndex = 43;
             // 
             // panel1
             // 
@@ -421,7 +386,6 @@ namespace SuperGas.Forms.modulo_Gasolineras
             this.TsConfiguracion.ResumeLayout(false);
             this.TsConfiguracion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvModels)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mapaEntityBindingSource)).EndInit();
             this.PnlFormulario.ResumeLayout(false);
             this.PnlFormulario.PerformLayout();
             this.ResumeLayout(false);
@@ -445,22 +409,18 @@ namespace SuperGas.Forms.modulo_Gasolineras
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Label LbEntity;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TxtDescripcion;
-        private System.Windows.Forms.Label LbPadre;
-        private System.Windows.Forms.ComboBox CbPadre;
+        private System.Windows.Forms.Label LbCombo2;
+        private System.Windows.Forms.Label LbCombo1;
+        private System.Windows.Forms.ComboBox CbCombo1;
         private System.Windows.Forms.ToolStripButton BtnCargar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel PnlFormulario;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.BindingSource mapaEntityBindingSource;
         private System.Windows.Forms.ToolStripButton BtnActivar;
+        private System.Windows.Forms.ComboBox CbCombo2;
+        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -27,7 +27,7 @@ namespace Data.Models.Gasolineras
                 {
                     var lista = (from p in ctx.PrecioGalon
                                  join tc in ctx.TiposCombustibles on p.TipoCombustibleId equals tc.Id
-
+                                 orderby p.FechaPrecio descending
                                  select new MapaPrecioGalon
                                  {
                                      Id = p.Id,

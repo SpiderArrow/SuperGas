@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Models.Vehiculos
+namespace Data.Models.Direcciones
 {
-    public class TipoCombustible
+    public class Rutas
     {
         [Key]
         public int Id { get; set; }
-        public string Descripcion { get; set; }
+        public string CodigoRuta { get; set; }
         public bool IsActive { get; set; }
 
 
@@ -23,7 +23,7 @@ namespace Data.Models.Vehiculos
             {
                 using (var ctx = new ModelContext())
                 {
-                    var lista = ctx.TiposCombustibles.ToList();
+                    var lista = ctx.Rutas.ToList();
                     if (lista.Any())
                         if (estado != null)
                             lista = lista.Where(x => x.IsActive == Convert.ToBoolean(estado)).ToList();
@@ -35,8 +35,8 @@ namespace Data.Models.Vehiculos
                     return lista.Select(x => new MapaEntity
                     {
                         Id = x.Id,
-                        Descripcion = x.Descripcion,
-                        Estado = x.IsActive ? "Activo" : "Desactivado"
+                        Descripcion = x.CodigoRuta,
+                        Estado = x.IsActive ? "Activo" : "Inactivo"
                     }).ToList();
                 }
             }
@@ -46,14 +46,40 @@ namespace Data.Models.Vehiculos
             }
         }
 
-
-        public TipoCombustible Get(long Id)
+        public List<MapaAsigna> Listado()
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
-                    return ctx.TiposCombustibles.Where(x => x.Id == Id).FirstOrDefault();
+                    var lista = ctx.Rutas.ToList();
+                    if (lista.Any())
+                    {
+                        return lista.Select(x => new MapaAsigna
+                        {
+                            Id = x.Id,
+                            Entity1 = x.CodigoRuta,
+                            Estado = x.IsActive ? "Activo" : "Inactivo"
+                        }).ToList();
+                    }
+                    else
+                        return new List<MapaAsigna>();
+                }
+            }
+            catch
+            {
+                return new List<MapaAsigna>();
+            }
+        }
+
+
+        public Rutas GetRuta(int Id)
+        {
+            try
+            {
+                using (var ctx = new ModelContext())
+                {
+                    return ctx.Rutas.Where(x => x.Id == Id).FirstOrDefault();
                 }
             }
             catch
@@ -62,13 +88,13 @@ namespace Data.Models.Vehiculos
             }
         }
 
-        public string Insert(TipoCombustible tc)
+        public string Insert(Rutas rt)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
-                    ctx.Entry(tc).State = EntityState.Added;
+                    ctx.Entry(rt).State = EntityState.Added;
                     ctx.SaveChanges();
                     return "";
                 }
@@ -79,13 +105,13 @@ namespace Data.Models.Vehiculos
             }
         }
 
-        public string Update(TipoCombustible tc)
+        public string Update(Rutas rt)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
-                    ctx.Entry(tc).State = EntityState.Modified;
+                    ctx.Entry(rt).State = EntityState.Modified;
                     ctx.SaveChanges();
                     return "";
                 }

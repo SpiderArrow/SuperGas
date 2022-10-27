@@ -29,6 +29,7 @@ namespace SuperGas.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresoPrecioGalon));
             this.PnlFormulario = new System.Windows.Forms.Panel();
             this.PnlPrincipal = new System.Windows.Forms.Panel();
@@ -55,12 +56,14 @@ namespace SuperGas.Forms
             this.TxtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
+            this.Error = new System.Windows.Forms.ErrorProvider(this.components);
             this.PnlFormulario.SuspendLayout();
             this.PnlPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvRegistros)).BeginInit();
             this.TsUsuarios.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Error)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlFormulario
@@ -255,6 +258,7 @@ namespace SuperGas.Forms
             this.CbTipoCombustible.Name = "CbTipoCombustible";
             this.CbTipoCombustible.Size = new System.Drawing.Size(200, 28);
             this.CbTipoCombustible.TabIndex = 72;
+            this.CbTipoCombustible.SelectedIndexChanged += new System.EventHandler(this.CbTipoCombustible_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -332,6 +336,10 @@ namespace SuperGas.Forms
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
+            // Error
+            // 
+            this.Error.ContainerControl = this;
+            // 
             // IngresoPrecioGalon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -354,16 +362,12 @@ namespace SuperGas.Forms
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Error)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn padreIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn padreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel PnlFormulario;
         private System.Windows.Forms.Panel PnlPrincipal;
         private System.Windows.Forms.DataGridView DgvRegistros;
@@ -389,5 +393,6 @@ namespace SuperGas.Forms
         private System.Windows.Forms.TextBox TxtPrecio;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.ErrorProvider Error;
     }
 }

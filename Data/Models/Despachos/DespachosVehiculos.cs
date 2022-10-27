@@ -16,7 +16,7 @@ namespace Data.Models.Despachos
         public DateTime FechaDespacho { get; set; }
         public int TipoCombustibleId { get; set; }
         public long VehiculoId { get; set; }
-        public long GasolineraId { get; set; }
+        public long CisternaId { get; set; }
         public decimal GalonesDespachados { get; set; }
         public decimal PrecioGalon { get; set; }
         public string Observaciones { get; set; }
@@ -29,17 +29,19 @@ namespace Data.Models.Despachos
                 {
                     var lista = (from d in ctx.DespachosVehiculos
                                  join tc in ctx.TiposCombustibles on d.TipoCombustibleId equals tc.Id
-                                 join g in ctx.Gasolineras on d.GasolineraId equals g.Id
-                                 join c in ctx.Vehiculos on d.VehiculoId equals c.Id
+                                 join c in ctx.Cisternas on d.CisternaId equals c.Id
+                                 join g in ctx.Gasolineras on c.GasolineraId equals g.Id
+                                 join v in ctx.Vehiculos on d.VehiculoId equals v.Id
 
                                  select new MapaDespachosVehiculos
                                  {
                                      Id = d.Id,
-                                     GasolineraId = g.Id,
+                                     CisternaId = g.Id,
                                      CamionId = c.Id,
                                      TipoCombustibleId = tc.Id,
                                      Gasolinera = g.Nombre,
-                                     Camion = c.Nombre,
+                                     Cisterna = c.Descripcion,
+                                     Camion = v.Nombre,
                                      TipoCombustible = tc.Descripcion,
                                      GalonesDespachados = d.GalonesDespachados,
                                      Observaciones = d.Observaciones

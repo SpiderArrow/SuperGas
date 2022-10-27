@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Mapas._helpers;
 using Data.Mapas.Gasolineras;
 
 namespace Data.Models.Gasolineras
@@ -81,6 +82,37 @@ namespace Data.Models.Gasolineras
             catch
             {
                 return new List<MapaSimple>();
+            }
+        }
+
+        public List<MapaEntity> Listado(int? GasoId)
+        {
+            try
+            {
+                using (var ctx = new ModelContext())
+                {
+                    var lista = (from c in ctx.Cisternas
+                                 join g in ctx.Gasolineras on c.GasolineraId equals g.Id
+                                 where c.IsActive == true
+                                 select new MapaEntity
+                                 {
+                                     Id = c.Id,
+                                     PadreId = (int)g.Id,
+                                     Descripcion = c.Descripcion
+                                 }).ToList();
+
+                    if (lista.Any())
+                        if (GasoId != null)
+                            return lista.Where(x => x.PadreId == Convert.ToInt32(GasoId)).ToList();
+                        else
+                            return lista;
+                    else
+                        return new List<MapaEntity>();
+                }
+            }
+            catch
+            {
+                return new List<MapaEntity>();
             }
         }
 

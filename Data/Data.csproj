@@ -85,8 +85,11 @@
   <ItemGroup>
     <Compile Include="Mapas\Despachos\MapaDespachosBombas.cs" />
     <Compile Include="Mapas\Despachos\MapaDespachosVehiculos.cs" />
+    <Compile Include="Mapas\Direcciones\MapaRutas.cs" />
     <Compile Include="Mapas\Empleados\MapaEmpleado.cs" />
     <Compile Include="Mapas\Empleados\MapaEmpleadoSimple.cs" />
+    <Compile Include="Mapas\Facturas\MapaDetalleFactura.cs" />
+    <Compile Include="Mapas\Facturas\MapaFactura.cs" />
     <Compile Include="Mapas\Gasolineras\MapaBomba.cs" />
     <Compile Include="Mapas\Gasolineras\MapaCisterna.cs" />
     <Compile Include="Mapas\Gasolineras\MapaGasolinera.cs" />
@@ -96,42 +99,17 @@
     <Compile Include="Mapas\Limpieza\MapaLimpieza.cs" />
     <Compile Include="Mapas\Vehiculos\MapaVehiculos.cs" />
     <Compile Include="Mapas\Vehiculos\MapaVehiculosSimple.cs" />
-    <Compile Include="Migrations\202210250034029_m1.cs" />
-    <Compile Include="Migrations\202210250034029_m1.designer.cs">
-      <DependentUpon>202210250034029_m1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210250716098_m2.cs" />
-    <Compile Include="Migrations\202210250716098_m2.designer.cs">
-      <DependentUpon>202210250716098_m2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210251822314_m3.cs" />
-    <Compile Include="Migrations\202210251822314_m3.designer.cs">
-      <DependentUpon>202210251822314_m3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210252242551_m4.cs" />
-    <Compile Include="Migrations\202210252242551_m4.designer.cs">
-      <DependentUpon>202210252242551_m4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210260543597_m5.cs" />
-    <Compile Include="Migrations\202210260543597_m5.designer.cs">
-      <DependentUpon>202210260543597_m5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210260603052_m6.cs" />
-    <Compile Include="Migrations\202210260603052_m6.designer.cs">
-      <DependentUpon>202210260603052_m6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210260749515_m7.cs" />
-    <Compile Include="Migrations\202210260749515_m7.designer.cs">
-      <DependentUpon>202210260749515_m7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210262125494_m8.cs" />
-    <Compile Include="Migrations\202210262125494_m8.designer.cs">
-      <DependentUpon>202210262125494_m8.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Mapas\_helpers\MapaAsigna.cs" />
+    <Compile Include="Models\Asignacion\AsignacionRuta.cs" />
+    <Compile Include="Models\Asignacion\AsignacionZonas.cs" />
     <Compile Include="Models\Despachos\DespachosBombas.cs" />
     <Compile Include="Models\Despachos\DespachosVehiculos.cs" />
+    <Compile Include="Models\Direcciones\Rutas.cs" />
     <Compile Include="Models\Empleados\Empleado.cs" />
     <Compile Include="Models\Empleados\RolEmpleado.cs" />
+    <Compile Include="Models\Facturas\DetalleFactura.cs" />
+    <Compile Include="Models\Facturas\Factura.cs" />
+    <Compile Include="Models\Facturas\TipoMovimiento.cs" />
     <Compile Include="Models\Gasolineras\Bombas.cs" />
     <Compile Include="Models\Gasolineras\Cisternas.cs" />
     <Compile Include="Models\Gasolineras\Empresas.cs" />
@@ -159,30 +137,6 @@
     <Compile Include="Security\ApplicationUserManager.cs" />
     <Compile Include="Security\ModelState.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="Migrations\202210250034029_m1.resx">
-      <DependentUpon>202210250034029_m1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210250716098_m2.resx">
-      <DependentUpon>202210250716098_m2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210251822314_m3.resx">
-      <DependentUpon>202210251822314_m3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210252242551_m4.resx">
-      <DependentUpon>202210252242551_m4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210260543597_m5.resx">
-      <DependentUpon>202210260543597_m5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210260603052_m6.resx">
-      <DependentUpon>202210260603052_m6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210260749515_m7.resx">
-      <DependentUpon>202210260749515_m7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210262125494_m8.resx">
-      <DependentUpon>202210262125494_m8.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

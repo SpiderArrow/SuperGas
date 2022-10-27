@@ -451,11 +451,6 @@ namespace SuperGas.Forms.modulo_Cisternas
         private System.Windows.Forms.ComboBox CbPadre;
         private System.Windows.Forms.ToolStripButton BtnCargar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn padreIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn padreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel PnlFormulario;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel1;
