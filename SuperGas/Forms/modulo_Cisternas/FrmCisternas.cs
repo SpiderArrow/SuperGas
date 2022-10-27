@@ -265,5 +265,13 @@ namespace SuperGas.Forms.modulo_Cisternas
                 e.Handled = true;
             }
         }
+
+        private void TxtGlTotal_TextChanged(object sender, EventArgs e)
+        {
+            decimal totales = decimal.TryParse(TxtGlTotal.Text, out decimal p) ? p : 0.00m;
+            decimal despachados = decimal.TryParse(TxtGlDespachado.Text, out decimal c) ? c : 0.00m;
+
+            TxtGlActuales.Text = decimal.Round(totales - despachados, 2) + "";
+        }
     }
 }

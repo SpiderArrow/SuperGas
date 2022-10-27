@@ -85,34 +85,36 @@ namespace Data.Models.Gasolineras
             }
         }
 
-        public List<MapaEntity> Listado(int? GasoId)
+        public List<MapaSimple> Listado(int? GasoId, int? tcId = null)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
+                    int Tipoc = tcId != null ? Convert.ToInt32(tcId) : 0;
+                    var combustibles = tcId == null ? ctx.TiposCombustibles.Select(x => x.Id).ToList() : new List<int>() { Tipoc };
+
                     var lista = (from c in ctx.Cisternas
                                  join g in ctx.Gasolineras on c.GasolineraId equals g.Id
-                                 where c.IsActive == true
-                                 select new MapaEntity
+                                 join tc in ctx.TiposCombustibles on c.TipoCombustibleId equals tc.Id
+                                 where c.IsActive == true && combustibles.Contains(c.TipoCombustibleId) 
+                                                          && g.Id == GasoId
+                                 select new MapaSimple
                                  {
                                      Id = c.Id,
-                                     PadreId = (int)g.Id,
-                                     Descripcion = c.Descripcion
+                                     Descripcion = c.Descripcion,
+                                     GalonesDisponibles = c.GalonesActuales
                                  }).ToList();
 
                     if (lista.Any())
-                        if (GasoId != null)
-                            return lista.Where(x => x.PadreId == Convert.ToInt32(GasoId)).ToList();
-                        else
-                            return lista;
+                        return lista;
                     else
-                        return new List<MapaEntity>();
+                        return new List<MapaSimple>();
                 }
             }
             catch
             {
-                return new List<MapaEntity>();
+                return new List<MapaSimple>();
             }
         }
 

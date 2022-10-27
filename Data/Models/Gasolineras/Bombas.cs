@@ -55,15 +55,18 @@ namespace Data.Models.Gasolineras
             }
         }
 
-        public List<MapaSimple> ListadoBombasDespacho()
+        public List<MapaSimple> ListadoBombasDespacho(int? tcId = null)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
+                    int Tipoc = tcId != null ? Convert.ToInt32(tcId) : 0;
+                    var combustibles = tcId == null ? ctx.TiposCombustibles.Select(x => x.Id).ToList() : new List<int>() { Tipoc };
+
                     var lista = (from b in ctx.Bombas
                                  join t in ctx.TiposCombustibles on b.TipoCombustibleId equals t.Id
-                                 where b.IsActive == true
+                                 where b.IsActive == true && combustibles.Contains(t.Id)
                                  select new MapaSimple
                                  {
                                      Id = b.Id,

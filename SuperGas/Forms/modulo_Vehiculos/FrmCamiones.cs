@@ -228,7 +228,7 @@ namespace SuperGas.Forms.modulo_Vehiculos
 
         public void CargarEmpleados()
         {
-            var listado = _empleados.ListadoConductor();
+            var listado = _empleados.ListadoByRol("conductor");
             CbEncargado.DataSource = listado;
             CbEncargado.DisplayMember = "NombreCompleto";
             CbEncargado.ValueMember = "Id";
@@ -301,6 +301,14 @@ namespace SuperGas.Forms.modulo_Vehiculos
         private void TsUsuarios_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void TxtGalones_TextChanged(object sender, EventArgs e)
+        {
+            decimal totales = decimal.TryParse(TxtGalones.Text, out decimal p) ? p : 0.00m;
+            decimal despachados = decimal.TryParse(TxtGlDespachados.Text, out decimal c) ? c : 0.00m;
+
+            TxtActuales.Text = decimal.Round(totales - despachados, 2) + "";
         }
     }
 }

@@ -32,16 +32,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.GbFacturacion = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.TxtDireccion = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtNit = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.CbEncargados = new System.Windows.Forms.ComboBox();
+            this.CbEncargado = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtPrecioGal = new System.Windows.Forms.TextBox();
             this.BtnVolver = new System.Windows.Forms.Button();
             this.BtnDespachar = new System.Windows.Forms.Button();
             this.TxtObservaciones = new System.Windows.Forms.TextBox();
@@ -70,8 +72,6 @@
             this.CbBombas = new System.Windows.Forms.ComboBox();
             this.CbCamiones = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.GbFacturacion.SuspendLayout();
@@ -94,9 +94,9 @@
             // 
             this.panel2.Controls.Add(this.GbFacturacion);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.CbEncargados);
+            this.panel2.Controls.Add(this.CbEncargado);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.TxtPrecioGal);
             this.panel2.Controls.Add(this.BtnVolver);
             this.panel2.Controls.Add(this.BtnDespachar);
             this.panel2.Controls.Add(this.TxtObservaciones);
@@ -130,13 +130,13 @@
             // 
             // GbFacturacion
             // 
-            this.GbFacturacion.Controls.Add(this.textBox5);
+            this.GbFacturacion.Controls.Add(this.TxtTotal);
             this.GbFacturacion.Controls.Add(this.label17);
-            this.GbFacturacion.Controls.Add(this.textBox4);
+            this.GbFacturacion.Controls.Add(this.TxtDireccion);
             this.GbFacturacion.Controls.Add(this.label16);
-            this.GbFacturacion.Controls.Add(this.textBox3);
+            this.GbFacturacion.Controls.Add(this.TxtNit);
             this.GbFacturacion.Controls.Add(this.label15);
-            this.GbFacturacion.Controls.Add(this.textBox2);
+            this.GbFacturacion.Controls.Add(this.TxtNombre);
             this.GbFacturacion.Controls.Add(this.label14);
             this.GbFacturacion.Enabled = false;
             this.GbFacturacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,13 +147,33 @@
             this.GbFacturacion.TabStop = false;
             this.GbFacturacion.Text = "Datos de Facturación";
             // 
-            // textBox4
+            // TxtTotal
             // 
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(22, 114);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(469, 26);
-            this.textBox4.TabIndex = 50;
+            this.TxtTotal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTotal.Location = new System.Drawing.Point(326, 156);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.ReadOnly = true;
+            this.TxtTotal.Size = new System.Drawing.Size(165, 31);
+            this.TxtTotal.TabIndex = 52;
+            this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(226, 161);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 22);
+            this.label17.TabIndex = 51;
+            this.label17.Text = "Total (Q):";
+            // 
+            // TxtDireccion
+            // 
+            this.TxtDireccion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDireccion.Location = new System.Drawing.Point(22, 114);
+            this.TxtDireccion.Name = "TxtDireccion";
+            this.TxtDireccion.Size = new System.Drawing.Size(469, 26);
+            this.TxtDireccion.TabIndex = 50;
             // 
             // label16
             // 
@@ -165,13 +185,13 @@
             this.label16.TabIndex = 49;
             this.label16.Text = "Dirección:";
             // 
-            // textBox3
+            // TxtNit
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(326, 55);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 26);
-            this.textBox3.TabIndex = 48;
+            this.TxtNit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNit.Location = new System.Drawing.Point(326, 55);
+            this.TxtNit.Name = "TxtNit";
+            this.TxtNit.Size = new System.Drawing.Size(165, 26);
+            this.TxtNit.TabIndex = 48;
             // 
             // label15
             // 
@@ -183,13 +203,13 @@
             this.label15.TabIndex = 47;
             this.label15.Text = "Nit:";
             // 
-            // textBox2
+            // TxtNombre
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(22, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(283, 26);
-            this.textBox2.TabIndex = 46;
+            this.TxtNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNombre.Location = new System.Drawing.Point(22, 55);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(283, 26);
+            this.TxtNombre.TabIndex = 46;
             // 
             // label14
             // 
@@ -211,15 +231,14 @@
             this.label13.TabIndex = 72;
             this.label13.Text = "Encargado:";
             // 
-            // CbEncargados
+            // CbEncargado
             // 
-            this.CbEncargados.Enabled = false;
-            this.CbEncargados.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbEncargados.FormattingEnabled = true;
-            this.CbEncargados.Location = new System.Drawing.Point(778, 83);
-            this.CbEncargados.Name = "CbEncargados";
-            this.CbEncargados.Size = new System.Drawing.Size(241, 28);
-            this.CbEncargados.TabIndex = 71;
+            this.CbEncargado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbEncargado.FormattingEnabled = true;
+            this.CbEncargado.Location = new System.Drawing.Point(778, 83);
+            this.CbEncargado.Name = "CbEncargado";
+            this.CbEncargado.Size = new System.Drawing.Size(241, 28);
+            this.CbEncargado.TabIndex = 71;
             // 
             // label6
             // 
@@ -232,15 +251,16 @@
             this.label6.TabIndex = 70;
             this.label6.Text = "Precio Galón:";
             // 
-            // textBox1
+            // TxtPrecioGal
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(893, 151);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(126, 26);
-            this.textBox1.TabIndex = 69;
+            this.TxtPrecioGal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.TxtPrecioGal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPrecioGal.Location = new System.Drawing.Point(893, 151);
+            this.TxtPrecioGal.Name = "TxtPrecioGal";
+            this.TxtPrecioGal.ReadOnly = true;
+            this.TxtPrecioGal.Size = new System.Drawing.Size(126, 26);
+            this.TxtPrecioGal.TabIndex = 69;
+            this.TxtPrecioGal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // BtnVolver
             // 
@@ -326,6 +346,7 @@
             this.CbCisternas.Name = "CbCisternas";
             this.CbCisternas.Size = new System.Drawing.Size(225, 28);
             this.CbCisternas.TabIndex = 62;
+            this.CbCisternas.SelectedIndexChanged += new System.EventHandler(this.CbCisternas_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -356,6 +377,7 @@
             this.TxtGalCisterna.ReadOnly = true;
             this.TxtGalCisterna.Size = new System.Drawing.Size(126, 26);
             this.TxtGalCisterna.TabIndex = 59;
+            this.TxtGalCisterna.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -373,8 +395,10 @@
             this.CbTipoCombustible.FormattingEnabled = true;
             this.CbTipoCombustible.Location = new System.Drawing.Point(26, 149);
             this.CbTipoCombustible.Name = "CbTipoCombustible";
-            this.CbTipoCombustible.Size = new System.Drawing.Size(225, 28);
+            this.CbTipoCombustible.Size = new System.Drawing.Size(224, 28);
             this.CbTipoCombustible.TabIndex = 53;
+            this.CbTipoCombustible.SelectedIndexChanged += new System.EventHandler(this.CbTipoCombustible_SelectedIndexChanged);
+            this.CbTipoCombustible.SelectedValueChanged += new System.EventHandler(this.CbTipoCombustible_SelectedValueChanged);
             // 
             // groupBox1
             // 
@@ -442,6 +466,7 @@
             this.TxtGalTanque.ReadOnly = true;
             this.TxtGalTanque.Size = new System.Drawing.Size(126, 26);
             this.TxtGalTanque.TabIndex = 48;
+            this.TxtGalTanque.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -461,6 +486,7 @@
             this.TxtGalBomba.ReadOnly = true;
             this.TxtGalBomba.Size = new System.Drawing.Size(126, 26);
             this.TxtGalBomba.TabIndex = 46;
+            this.TxtGalBomba.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -477,8 +503,11 @@
             this.TxtGalDespachar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtGalDespachar.Location = new System.Drawing.Point(26, 230);
             this.TxtGalDespachar.Name = "TxtGalDespachar";
-            this.TxtGalDespachar.Size = new System.Drawing.Size(225, 26);
+            this.TxtGalDespachar.Size = new System.Drawing.Size(224, 26);
             this.TxtGalDespachar.TabIndex = 44;
+            this.TxtGalDespachar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtGalDespachar.TextChanged += new System.EventHandler(this.TxtGalDespachar_TextChanged);
+            this.TxtGalDespachar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDecimal_KeyPress);
             // 
             // label10
             // 
@@ -519,6 +548,7 @@
             this.CbBombas.Name = "CbBombas";
             this.CbBombas.Size = new System.Drawing.Size(225, 28);
             this.CbBombas.TabIndex = 40;
+            this.CbBombas.SelectedIndexChanged += new System.EventHandler(this.CbBombas_SelectedIndexChanged);
             // 
             // CbCamiones
             // 
@@ -529,6 +559,7 @@
             this.CbCamiones.Name = "CbCamiones";
             this.CbCamiones.Size = new System.Drawing.Size(225, 28);
             this.CbCamiones.TabIndex = 39;
+            this.CbCamiones.SelectedIndexChanged += new System.EventHandler(this.CbCamiones_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -541,25 +572,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(226, 161);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(94, 22);
-            this.label17.TabIndex = 51;
-            this.label17.Text = "Total (Q):";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(326, 156);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(165, 31);
-            this.textBox5.TabIndex = 52;
             // 
             // FrmGestionDistribucion
             // 
@@ -615,17 +627,17 @@
         private System.Windows.Forms.Button BtnVolver;
         private System.Windows.Forms.Button BtnDespachar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtPrecioGal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox CbEncargados;
+        private System.Windows.Forms.ComboBox CbEncargado;
         private System.Windows.Forms.GroupBox GbFacturacion;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtDireccion;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtNit;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.Label label17;
     }
 }
