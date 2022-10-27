@@ -99,9 +99,6 @@
     <Compile Include="Mapas\Limpieza\MapaLimpieza.cs" />
     <Compile Include="Mapas\Vehiculos\MapaVehiculos.cs" />
     <Compile Include="Mapas\Vehiculos\MapaVehiculosSimple.cs" />
-    <Compile Include="Mapas\_helpers\MapaAsigna.cs" />
-    <Compile Include="Models\Asignacion\AsignacionRuta.cs" />
-    <Compile Include="Models\Asignacion\AsignacionZonas.cs" />
     <Compile Include="Models\Despachos\DespachosBombas.cs" />
     <Compile Include="Models\Despachos\DespachosVehiculos.cs" />
     <Compile Include="Models\Direcciones\Rutas.cs" />
