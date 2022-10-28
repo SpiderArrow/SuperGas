@@ -40,7 +40,9 @@ namespace SuperGas.Forms
             this.SubMenuReportes = new System.Windows.Forms.Panel();
             this.PnlSubMenu = new System.Windows.Forms.Panel();
             this.PnlBotones = new System.Windows.Forms.Panel();
-            this.BtnREgresos = new System.Windows.Forms.Button();
+            this.BtnRIngresos = new System.Windows.Forms.Button();
+            this.BtnREgresosVehiculo = new System.Windows.Forms.Button();
+            this.BtnREgresosBomba = new System.Windows.Forms.Button();
             this.BtnRVentas = new System.Windows.Forms.Button();
             this.PnlEspacio = new System.Windows.Forms.Panel();
             this.PnlReportes = new System.Windows.Forms.Panel();
@@ -61,7 +63,6 @@ namespace SuperGas.Forms
             this.BtnSalir = new System.Windows.Forms.PictureBox();
             this.Inicio = new System.Windows.Forms.PictureBox();
             this.PnlContenedor = new System.Windows.Forms.Panel();
-            this.BtnRIngresos = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMaximizar)).BeginInit();
@@ -200,30 +201,70 @@ namespace SuperGas.Forms
             // 
             this.PnlBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.PnlBotones.Controls.Add(this.BtnRIngresos);
-            this.PnlBotones.Controls.Add(this.BtnREgresos);
+            this.PnlBotones.Controls.Add(this.BtnREgresosVehiculo);
+            this.PnlBotones.Controls.Add(this.BtnREgresosBomba);
             this.PnlBotones.Controls.Add(this.BtnRVentas);
             this.PnlBotones.Location = new System.Drawing.Point(0, 0);
             this.PnlBotones.Name = "PnlBotones";
             this.PnlBotones.Size = new System.Drawing.Size(196, 136);
             this.PnlBotones.TabIndex = 18;
             // 
-            // BtnREgresos
+            // BtnRIngresos
             // 
-            this.BtnREgresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.BtnREgresos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnREgresos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnREgresos.FlatAppearance.BorderSize = 0;
-            this.BtnREgresos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            this.BtnREgresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnREgresos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnREgresos.ForeColor = System.Drawing.Color.White;
-            this.BtnREgresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnREgresos.Location = new System.Drawing.Point(0, 25);
-            this.BtnREgresos.Name = "BtnREgresos";
-            this.BtnREgresos.Size = new System.Drawing.Size(196, 25);
-            this.BtnREgresos.TabIndex = 18;
-            this.BtnREgresos.Text = "Reporte Egresos Combustible";
-            this.BtnREgresos.UseVisualStyleBackColor = false;
+            this.BtnRIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.BtnRIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRIngresos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRIngresos.FlatAppearance.BorderSize = 0;
+            this.BtnRIngresos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.BtnRIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRIngresos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRIngresos.ForeColor = System.Drawing.Color.White;
+            this.BtnRIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRIngresos.Location = new System.Drawing.Point(0, 75);
+            this.BtnRIngresos.Name = "BtnRIngresos";
+            this.BtnRIngresos.Size = new System.Drawing.Size(196, 25);
+            this.BtnRIngresos.TabIndex = 19;
+            this.BtnRIngresos.Text = "Reporte Ingresos Combustible";
+            this.BtnRIngresos.UseVisualStyleBackColor = false;
+            this.BtnRIngresos.Click += new System.EventHandler(this.BtnRIngresos_Click);
+            // 
+            // BtnREgresosVehiculo
+            // 
+            this.BtnREgresosVehiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.BtnREgresosVehiculo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnREgresosVehiculo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnREgresosVehiculo.FlatAppearance.BorderSize = 0;
+            this.BtnREgresosVehiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.BtnREgresosVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnREgresosVehiculo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnREgresosVehiculo.ForeColor = System.Drawing.Color.White;
+            this.BtnREgresosVehiculo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnREgresosVehiculo.Location = new System.Drawing.Point(0, 50);
+            this.BtnREgresosVehiculo.Name = "BtnREgresosVehiculo";
+            this.BtnREgresosVehiculo.Size = new System.Drawing.Size(196, 25);
+            this.BtnREgresosVehiculo.TabIndex = 20;
+            this.BtnREgresosVehiculo.Text = "Reporte Egresos Vehiculo";
+            this.BtnREgresosVehiculo.UseVisualStyleBackColor = false;
+            this.BtnREgresosVehiculo.Click += new System.EventHandler(this.BtnREgresosVehiculo_Click);
+            // 
+            // BtnREgresosBomba
+            // 
+            this.BtnREgresosBomba.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.BtnREgresosBomba.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnREgresosBomba.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnREgresosBomba.FlatAppearance.BorderSize = 0;
+            this.BtnREgresosBomba.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.BtnREgresosBomba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnREgresosBomba.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnREgresosBomba.ForeColor = System.Drawing.Color.White;
+            this.BtnREgresosBomba.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnREgresosBomba.Location = new System.Drawing.Point(0, 25);
+            this.BtnREgresosBomba.Name = "BtnREgresosBomba";
+            this.BtnREgresosBomba.Size = new System.Drawing.Size(196, 25);
+            this.BtnREgresosBomba.TabIndex = 18;
+            this.BtnREgresosBomba.Text = "Reporte Egresos Bomba";
+            this.BtnREgresosBomba.UseVisualStyleBackColor = false;
+            this.BtnREgresosBomba.Click += new System.EventHandler(this.BtnREgresosBomba_Click);
             // 
             // BtnRVentas
             // 
@@ -242,7 +283,7 @@ namespace SuperGas.Forms
             this.BtnRVentas.TabIndex = 17;
             this.BtnRVentas.Text = "Reporte Ventas Combustible";
             this.BtnRVentas.UseVisualStyleBackColor = false;
-            this.BtnRVentas.Click += new System.EventHandler(this.BtnRIngresos_Click);
+            this.BtnRVentas.Click += new System.EventHandler(this.BtnRVentas_Click_1);
             // 
             // PnlEspacio
             // 
@@ -481,24 +522,6 @@ namespace SuperGas.Forms
             this.PnlContenedor.Size = new System.Drawing.Size(1069, 627);
             this.PnlContenedor.TabIndex = 2;
             // 
-            // BtnRIngresos
-            // 
-            this.BtnRIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.BtnRIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRIngresos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRIngresos.FlatAppearance.BorderSize = 0;
-            this.BtnRIngresos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            this.BtnRIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRIngresos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRIngresos.ForeColor = System.Drawing.Color.White;
-            this.BtnRIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRIngresos.Location = new System.Drawing.Point(0, 50);
-            this.BtnRIngresos.Name = "BtnRIngresos";
-            this.BtnRIngresos.Size = new System.Drawing.Size(196, 25);
-            this.BtnRIngresos.TabIndex = 19;
-            this.BtnRIngresos.Text = "Reporte Ingresos Combustible";
-            this.BtnRIngresos.UseVisualStyleBackColor = false;
-            // 
             // FormBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,7 +576,7 @@ namespace SuperGas.Forms
         private System.Windows.Forms.Panel SubMenuReportes;
         private System.Windows.Forms.Panel PnlReportes;
         private System.Windows.Forms.Panel PnlBotones;
-        private System.Windows.Forms.Button BtnREgresos;
+        private System.Windows.Forms.Button BtnREgresosBomba;
         private System.Windows.Forms.Button BtnRVentas;
         private System.Windows.Forms.Panel PnlUsuarios;
         private System.Windows.Forms.Panel PnlEntradas;
@@ -568,5 +591,6 @@ namespace SuperGas.Forms
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button Limpieza;
         private System.Windows.Forms.Button BtnRIngresos;
+        private System.Windows.Forms.Button BtnREgresosVehiculo;
     }
 }

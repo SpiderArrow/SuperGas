@@ -38,6 +38,7 @@ namespace SuperGas.Forms
             this.BtnPistas = new System.Windows.Forms.Button();
             this.BtnCisternas = new System.Windows.Forms.Button();
             this.BtnGalones = new System.Windows.Forms.Button();
+            this.BtnBienvenido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,11 +178,29 @@ namespace SuperGas.Forms
             this.BtnGalones.UseVisualStyleBackColor = false;
             this.BtnGalones.Click += new System.EventHandler(this.BtnGalones_Click);
             // 
+            // BtnBienvenido
+            // 
+            this.BtnBienvenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.BtnBienvenido.FlatAppearance.BorderSize = 0;
+            this.BtnBienvenido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.BtnBienvenido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBienvenido.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBienvenido.ForeColor = System.Drawing.Color.White;
+            this.BtnBienvenido.Location = new System.Drawing.Point(205, 160);
+            this.BtnBienvenido.Name = "BtnBienvenido";
+            this.BtnBienvenido.Size = new System.Drawing.Size(631, 41);
+            this.BtnBienvenido.TabIndex = 8;
+            this.BtnBienvenido.Text = "¡Bienvenido!";
+            this.BtnBienvenido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnBienvenido.UseVisualStyleBackColor = false;
+            this.BtnBienvenido.Click += new System.EventHandler(this.BtnBienvenido_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 627);
+            this.Controls.Add(this.BtnBienvenido);
             this.Controls.Add(this.BtnGalones);
             this.Controls.Add(this.BtnCisternas);
             this.Controls.Add(this.BtnPistas);
@@ -209,5 +228,6 @@ namespace SuperGas.Forms
         private System.Windows.Forms.Button BtnPistas;
         private System.Windows.Forms.Button BtnCisternas;
         private System.Windows.Forms.Button BtnGalones;
+        private System.Windows.Forms.Button BtnBienvenido;
     }
 }

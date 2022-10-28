@@ -196,11 +196,17 @@
     <Compile Include="Forms\modulo_Limpieza\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\modulo_Reportes\FrmReportesEgreso.cs">
+    <Compile Include="Forms\modulo_Reportes\FrmReportesEgresoVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\modulo_Reportes\FrmReportesEgreso.Designer.cs">
-      <DependentUpon>FrmReportesEgreso.cs</DependentUpon>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesEgresoVehiculo.Designer.cs">
+      <DependentUpon>FrmReportesEgresoVehiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesEgresoBomba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesEgresoBomba.Designer.cs">
+      <DependentUpon>FrmReportesEgresoBomba.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\modulo_Reportes\FrmReportesIngreso.cs">
       <SubType>Form</SubType>
@@ -327,8 +333,11 @@
     <EmbeddedResource Include="Forms\modulo_Limpieza\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\modulo_Reportes\FrmReportesEgreso.resx">
-      <DependentUpon>FrmReportesEgreso.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\modulo_Reportes\FrmReportesEgresoVehiculo.resx">
+      <DependentUpon>FrmReportesEgresoVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\modulo_Reportes\FrmReportesEgresoBomba.resx">
+      <DependentUpon>FrmReportesEgresoBomba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\modulo_Reportes\FrmReportesIngreso.resx">
       <DependentUpon>FrmReportesIngreso.cs</DependentUpon>
@@ -380,9 +389,15 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\modulo_ventas\Comprobante.rdlc" />
+    <EmbeddedResource Include="Reports\modulo_ventas\EgresosDespachoBomba.rdlc" />
+    <EmbeddedResource Include="Reports\modulo_ventas\EgresosDespachoVehiculo.rdlc" />
+    <EmbeddedResource Include="Reports\modulo_ventas\IngresosCombustible.rdlc" />
     <EmbeddedResource Include="Reports\modulo_ventas\Ventas.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Data.Mapas.Despachos.MapaDespachosBombas.datasource" />
+    <None Include="Properties\DataSources\Data.Mapas.Despachos.MapaDespachosVehiculos.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Documentos.MapaTipoDocumento.datasource" />
+    <None Include="Properties\DataSources\Data.Mapas.Entradas.MapaEntradas.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Facturas.MapaDetalleFactura.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Precios.MapaTipoPrecios.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Productos.MapaIngresoDetalles.datasource" />

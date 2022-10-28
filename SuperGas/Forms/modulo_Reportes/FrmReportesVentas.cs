@@ -38,11 +38,6 @@ namespace SuperGas.Forms.modulo_Reportes
             }
         }
 
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FrmReportesIngresos_Load(object sender, EventArgs e)
         {
             CargarInforme();

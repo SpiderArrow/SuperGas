@@ -211,9 +211,28 @@ namespace SuperGas.Forms
             AbrirFormHijo(new FrmEntradas());
         }
 
-        private void BtnRIngresos_Click(object sender, EventArgs e)
+
+
+
+
+        private void BtnREgresosVehiculo_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesEgresoVehiculo());
+        }
+
+        private void BtnRVentas_Click_1(object sender, EventArgs e)
         {
             AbrirFormHijo(new FrmReportesVentas());
+        }
+
+        private void BtnRIngresos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesIngreso());
+        }
+
+        private void BtnREgresosBomba_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesEgresoVehiculo());
         }
     }
 }

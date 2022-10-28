@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Data.Models.Gasolineras;
+using SuperGas.Globals;
 
 namespace SuperGas.Forms
 {
@@ -62,6 +63,8 @@ namespace SuperGas.Forms
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            var Name = UserLogIn.User.Name;
+            BtnBienvenido.Text = "¡Bienvenido " + Name + "!";
             IngresoPrecioGalon();
         }
 
@@ -87,6 +90,13 @@ namespace SuperGas.Forms
         {
             FormBase parent = this.ParentForm as FormBase;
             parent.PrecioGalon();
+        }
+
+        private void BtnBienvenido_Click(object sender, EventArgs e)
+        {
+            var Name = UserLogIn.User.Name;
+            MessageBox.Show("¡Que tengas un excelente día "+Name+"!", "Saludo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }

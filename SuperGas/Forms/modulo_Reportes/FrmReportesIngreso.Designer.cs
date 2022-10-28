@@ -28,37 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RVIngresos = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.RVIngresoCombustible = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.MapaEntradasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.MapaEntradasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // RVIngresos
+            // RVIngresoCombustible
             // 
-            this.RVIngresos.AutoScroll = true;
-            this.RVIngresos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RVIngresos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RVIngresos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RVIngresos.LocalReport.ReportEmbeddedResource = "SuperGas.Reports.modulo_ventas.Ingresos.rdlc";
-            this.RVIngresos.Location = new System.Drawing.Point(0, 0);
-            this.RVIngresos.Name = "RVIngresos";
-            this.RVIngresos.ServerReport.BearerToken = null;
-            this.RVIngresos.Size = new System.Drawing.Size(1048, 588);
-            this.RVIngresos.TabIndex = 13;
+            this.RVIngresoCombustible.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSetIngresoCombustible";
+            reportDataSource1.Value = this.MapaEntradasBindingSource;
+            this.RVIngresoCombustible.LocalReport.DataSources.Add(reportDataSource1);
+            this.RVIngresoCombustible.LocalReport.ReportEmbeddedResource = "SuperGas.Reports.modulo_ventas.IngresosCombustible.rdlc";
+            this.RVIngresoCombustible.Location = new System.Drawing.Point(0, 0);
+            this.RVIngresoCombustible.Name = "RVIngresoCombustible";
+            this.RVIngresoCombustible.ServerReport.BearerToken = null;
+            this.RVIngresoCombustible.Size = new System.Drawing.Size(1048, 588);
+            this.RVIngresoCombustible.TabIndex = 0;
+            // 
+            // MapaEntradasBindingSource
+            // 
+            this.MapaEntradasBindingSource.DataSource = typeof(Data.Mapas.Entradas.MapaEntradas);
             // 
             // FrmReportesIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 588);
-            this.Controls.Add(this.RVIngresos);
+            this.Controls.Add(this.RVIngresoCombustible);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReportesIngreso";
             this.Text = "FrmReportesIngreso";
+            this.Load += new System.EventHandler(this.FrmReportesIngreso_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.MapaEntradasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer RVIngresos;
+        private Microsoft.Reporting.WinForms.ReportViewer RVIngresoCombustible;
+        private System.Windows.Forms.BindingSource MapaEntradasBindingSource;
     }
 }

@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Data.Models.Entradas;
+using Data.Models.Despachos;
 using Microsoft.Reporting.WinForms;
 
 namespace SuperGas.Forms.modulo_Reportes
 {
-    public partial class FrmReportesIngreso : Form
+    public partial class FrmReportesEgresoVehiculo : Form
     {
-        readonly HistorialEntradas _entradas = new HistorialEntradas();
+        readonly DespachosBombas despachosBombas = new DespachosBombas();
 
-        public FrmReportesIngreso()
+        public FrmReportesEgresoVehiculo()
         {
             InitializeComponent();
         }
@@ -26,10 +26,10 @@ namespace SuperGas.Forms.modulo_Reportes
 
             try
             {
-                var entradas = _entradas.Listado();
-                var rds1 = new ReportDataSource("DataSetIngresoCombustible", entradas);
-                RVIngresoCombustible.LocalReport.DataSources.Clear();
-                RVIngresoCombustible.LocalReport.DataSources.Add(rds1);
+                var egresos = despachosBombas.Listado();
+                var rds1 = new ReportDataSource("DataSetEgresosBombas", egresos);
+                RVEgresoBomba.LocalReport.DataSources.Clear();
+                RVEgresoBomba.LocalReport.DataSources.Add(rds1);
             }
             catch (Exception ex)
             {
@@ -37,10 +37,10 @@ namespace SuperGas.Forms.modulo_Reportes
             }
         }
 
-        private void FrmReportesIngreso_Load(object sender, EventArgs e)
+        private void FrmReportesEgresoVehiculo_Load(object sender, EventArgs e)
         {
             CargarInforme();
-            this.RVIngresoCombustible.RefreshReport();
+            this.RVEgresoBomba.RefreshReport();
         }
     }
 }
