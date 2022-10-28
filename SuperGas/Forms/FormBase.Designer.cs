@@ -40,10 +40,7 @@ namespace SuperGas.Forms
             this.SubMenuReportes = new System.Windows.Forms.Panel();
             this.PnlSubMenu = new System.Windows.Forms.Panel();
             this.PnlBotones = new System.Windows.Forms.Panel();
-            this.BtnRCaja = new System.Windows.Forms.Button();
-            this.BtnRInventario = new System.Windows.Forms.Button();
-            this.BtnRClientes = new System.Windows.Forms.Button();
-            this.BtnRCompras = new System.Windows.Forms.Button();
+            this.BtnREgresos = new System.Windows.Forms.Button();
             this.BtnRVentas = new System.Windows.Forms.Button();
             this.PnlEspacio = new System.Windows.Forms.Panel();
             this.PnlReportes = new System.Windows.Forms.Panel();
@@ -64,6 +61,7 @@ namespace SuperGas.Forms
             this.BtnSalir = new System.Windows.Forms.PictureBox();
             this.Inicio = new System.Windows.Forms.PictureBox();
             this.PnlContenedor = new System.Windows.Forms.Panel();
+            this.BtnRIngresos = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnMaximizar)).BeginInit();
@@ -193,95 +191,39 @@ namespace SuperGas.Forms
             this.PnlSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.PnlSubMenu.Controls.Add(this.PnlBotones);
             this.PnlSubMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlSubMenu.Location = new System.Drawing.Point(35, 0);
+            this.PnlSubMenu.Location = new System.Drawing.Point(29, 0);
             this.PnlSubMenu.Name = "PnlSubMenu";
-            this.PnlSubMenu.Size = new System.Drawing.Size(196, 279);
+            this.PnlSubMenu.Size = new System.Drawing.Size(202, 279);
             this.PnlSubMenu.TabIndex = 1;
             // 
             // PnlBotones
             // 
             this.PnlBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.PnlBotones.Controls.Add(this.BtnRCaja);
-            this.PnlBotones.Controls.Add(this.BtnRInventario);
-            this.PnlBotones.Controls.Add(this.BtnRClientes);
-            this.PnlBotones.Controls.Add(this.BtnRCompras);
+            this.PnlBotones.Controls.Add(this.BtnRIngresos);
+            this.PnlBotones.Controls.Add(this.BtnREgresos);
             this.PnlBotones.Controls.Add(this.BtnRVentas);
             this.PnlBotones.Location = new System.Drawing.Point(0, 0);
             this.PnlBotones.Name = "PnlBotones";
-            this.PnlBotones.Size = new System.Drawing.Size(185, 136);
+            this.PnlBotones.Size = new System.Drawing.Size(196, 136);
             this.PnlBotones.TabIndex = 18;
             // 
-            // BtnRCaja
+            // BtnREgresos
             // 
-            this.BtnRCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.BtnRCaja.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRCaja.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRCaja.FlatAppearance.BorderSize = 0;
-            this.BtnRCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            this.BtnRCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRCaja.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRCaja.ForeColor = System.Drawing.Color.White;
-            this.BtnRCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRCaja.Location = new System.Drawing.Point(0, 100);
-            this.BtnRCaja.Name = "BtnRCaja";
-            this.BtnRCaja.Size = new System.Drawing.Size(185, 25);
-            this.BtnRCaja.TabIndex = 21;
-            this.BtnRCaja.Text = "Reporte Caja";
-            this.BtnRCaja.UseVisualStyleBackColor = false;
-            // 
-            // BtnRInventario
-            // 
-            this.BtnRInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.BtnRInventario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRInventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRInventario.FlatAppearance.BorderSize = 0;
-            this.BtnRInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            this.BtnRInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRInventario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRInventario.ForeColor = System.Drawing.Color.White;
-            this.BtnRInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRInventario.Location = new System.Drawing.Point(0, 75);
-            this.BtnRInventario.Name = "BtnRInventario";
-            this.BtnRInventario.Size = new System.Drawing.Size(185, 25);
-            this.BtnRInventario.TabIndex = 20;
-            this.BtnRInventario.Text = "Reporte Inventario";
-            this.BtnRInventario.UseVisualStyleBackColor = false;
-            // 
-            // BtnRClientes
-            // 
-            this.BtnRClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.BtnRClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRClientes.FlatAppearance.BorderSize = 0;
-            this.BtnRClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            this.BtnRClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRClientes.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRClientes.ForeColor = System.Drawing.Color.White;
-            this.BtnRClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRClientes.Location = new System.Drawing.Point(0, 50);
-            this.BtnRClientes.Name = "BtnRClientes";
-            this.BtnRClientes.Size = new System.Drawing.Size(185, 25);
-            this.BtnRClientes.TabIndex = 18;
-            this.BtnRClientes.Text = "Reporte Clientes";
-            this.BtnRClientes.UseVisualStyleBackColor = false;
-            // 
-            // BtnRCompras
-            // 
-            this.BtnRCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.BtnRCompras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRCompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnRCompras.FlatAppearance.BorderSize = 0;
-            this.BtnRCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
-            this.BtnRCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRCompras.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRCompras.ForeColor = System.Drawing.Color.White;
-            this.BtnRCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRCompras.Location = new System.Drawing.Point(0, 25);
-            this.BtnRCompras.Name = "BtnRCompras";
-            this.BtnRCompras.Size = new System.Drawing.Size(185, 25);
-            this.BtnRCompras.TabIndex = 19;
-            this.BtnRCompras.Text = "Reporte Compras";
-            this.BtnRCompras.UseVisualStyleBackColor = false;
+            this.BtnREgresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.BtnREgresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnREgresos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnREgresos.FlatAppearance.BorderSize = 0;
+            this.BtnREgresos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.BtnREgresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnREgresos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnREgresos.ForeColor = System.Drawing.Color.White;
+            this.BtnREgresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnREgresos.Location = new System.Drawing.Point(0, 25);
+            this.BtnREgresos.Name = "BtnREgresos";
+            this.BtnREgresos.Size = new System.Drawing.Size(196, 25);
+            this.BtnREgresos.TabIndex = 18;
+            this.BtnREgresos.Text = "Reporte Egresos Combustible";
+            this.BtnREgresos.UseVisualStyleBackColor = false;
             // 
             // BtnRVentas
             // 
@@ -296,10 +238,11 @@ namespace SuperGas.Forms
             this.BtnRVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRVentas.Location = new System.Drawing.Point(0, 0);
             this.BtnRVentas.Name = "BtnRVentas";
-            this.BtnRVentas.Size = new System.Drawing.Size(185, 25);
+            this.BtnRVentas.Size = new System.Drawing.Size(196, 25);
             this.BtnRVentas.TabIndex = 17;
-            this.BtnRVentas.Text = "ReporteVentas";
+            this.BtnRVentas.Text = "Reporte Ventas Combustible";
             this.BtnRVentas.UseVisualStyleBackColor = false;
+            this.BtnRVentas.Click += new System.EventHandler(this.BtnRIngresos_Click);
             // 
             // PnlEspacio
             // 
@@ -307,7 +250,7 @@ namespace SuperGas.Forms
             this.PnlEspacio.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlEspacio.Location = new System.Drawing.Point(0, 0);
             this.PnlEspacio.Name = "PnlEspacio";
-            this.PnlEspacio.Size = new System.Drawing.Size(35, 279);
+            this.PnlEspacio.Size = new System.Drawing.Size(29, 279);
             this.PnlEspacio.TabIndex = 23;
             // 
             // PnlReportes
@@ -538,6 +481,24 @@ namespace SuperGas.Forms
             this.PnlContenedor.Size = new System.Drawing.Size(1069, 627);
             this.PnlContenedor.TabIndex = 2;
             // 
+            // BtnRIngresos
+            // 
+            this.BtnRIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.BtnRIngresos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRIngresos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRIngresos.FlatAppearance.BorderSize = 0;
+            this.BtnRIngresos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.BtnRIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRIngresos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRIngresos.ForeColor = System.Drawing.Color.White;
+            this.BtnRIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRIngresos.Location = new System.Drawing.Point(0, 50);
+            this.BtnRIngresos.Name = "BtnRIngresos";
+            this.BtnRIngresos.Size = new System.Drawing.Size(196, 25);
+            this.BtnRIngresos.TabIndex = 19;
+            this.BtnRIngresos.Text = "Reporte Ingresos Combustible";
+            this.BtnRIngresos.UseVisualStyleBackColor = false;
+            // 
             // FormBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,10 +553,7 @@ namespace SuperGas.Forms
         private System.Windows.Forms.Panel SubMenuReportes;
         private System.Windows.Forms.Panel PnlReportes;
         private System.Windows.Forms.Panel PnlBotones;
-        private System.Windows.Forms.Button BtnRCaja;
-        private System.Windows.Forms.Button BtnRInventario;
-        private System.Windows.Forms.Button BtnRClientes;
-        private System.Windows.Forms.Button BtnRCompras;
+        private System.Windows.Forms.Button BtnREgresos;
         private System.Windows.Forms.Button BtnRVentas;
         private System.Windows.Forms.Panel PnlUsuarios;
         private System.Windows.Forms.Panel PnlEntradas;
@@ -609,5 +567,6 @@ namespace SuperGas.Forms
         private System.Windows.Forms.Panel PnlLimpieza;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button Limpieza;
+        private System.Windows.Forms.Button BtnRIngresos;
     }
 }

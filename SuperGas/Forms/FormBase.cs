@@ -23,6 +23,7 @@ using SuperGas.Forms.modulo_Pistas;
 using SuperGas.Forms.modulo_Distribucion;
 using SuperGas.Forms.modulo_Cisternas;
 using SuperGas.Forms.modulo_Entradas;
+using SuperGas.Forms.modulo_Reportes;
 
 namespace SuperGas.Forms
 {
@@ -208,6 +209,11 @@ namespace SuperGas.Forms
         private void Entradas_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new FrmEntradas());
+        }
+
+        private void BtnRIngresos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesVentas());
         }
     }
 }

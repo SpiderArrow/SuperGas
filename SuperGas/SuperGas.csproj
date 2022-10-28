@@ -196,6 +196,24 @@
     <Compile Include="Forms\modulo_Limpieza\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesEgreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesEgreso.Designer.cs">
+      <DependentUpon>FrmReportesEgreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesIngreso.Designer.cs">
+      <DependentUpon>FrmReportesIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\modulo_Reportes\FrmReportesVentas.Designer.cs">
+      <DependentUpon>FrmReportesVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\modulo_Vehiculos\FrmCamiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +327,15 @@
     <EmbeddedResource Include="Forms\modulo_Limpieza\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\modulo_Reportes\FrmReportesEgreso.resx">
+      <DependentUpon>FrmReportesEgreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\modulo_Reportes\FrmReportesIngreso.resx">
+      <DependentUpon>FrmReportesIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\modulo_Reportes\FrmReportesVentas.resx">
+      <DependentUpon>FrmReportesVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\modulo_Vehiculos\FrmCamiones.resx">
       <DependentUpon>FrmCamiones.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,7 +380,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\modulo_ventas\Comprobante.rdlc" />
-    <EmbeddedResource Include="Reports\modulo_ventas\Ingresos.rdlc" />
+    <EmbeddedResource Include="Reports\modulo_ventas\Ventas.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Data.Mapas.Documentos.MapaTipoDocumento.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Facturas.MapaDetalleFactura.datasource" />
@@ -361,6 +388,7 @@
     <None Include="Properties\DataSources\Data.Mapas.Productos.MapaIngresoDetalles.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Productos.MapaProductos1.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Proveedores.MapaProveedor.datasource" />
+    <None Include="Properties\DataSources\Data.Mapas.Reportes.MapaIngresos.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Ventas.MapaDetalleFactura.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Ventas.MapaFactura.datasource" />
     <None Include="Properties\DataSources\Data.Mapas._helpers.MapaEntity.datasource" />
