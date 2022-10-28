@@ -14,11 +14,16 @@ using Data.Models.Limpieza;
 using Data.Mapas._helpers;
 using Data.Mapas.Vehiculos;
 using Data.Mapas.Gasolineras;
+using Data.Mapas.Despachos;
+using Data.Models.Despachos;
+using SuperGas.Globals;
 
 namespace SuperGas.Forms.modulo_Distribucion
 {
     public partial class FrmGestionDistribucion : Form
     {
+        readonly DespachosBombas _despachosBombas = new DespachosBombas();
+        readonly DespachosVehiculos _despachosVehiculos = new DespachosVehiculos();
         readonly Vehiculo _vehiculos = new Vehiculo();
         readonly Gasolinera _gasolinera = new Gasolinera();
         readonly Bombas _bombas = new Bombas();
@@ -201,7 +206,9 @@ namespace SuperGas.Forms.modulo_Distribucion
         {
             CbBombas.Enabled = RbBombaCamion.Checked;
             CbCamiones.Enabled = RbBombaCamion.Checked;
+            CbTipoCombustible.Enabled = RbBombaCamion.Checked;
             LimpiarDatosFacturacion();
+            ActivarTC();
         }
 
         private void RbCamionCisterna_CheckedChanged(object sender, EventArgs e)
@@ -211,6 +218,7 @@ namespace SuperGas.Forms.modulo_Distribucion
             CbCisternas.Enabled = RbCamionCisterna.Checked;
             GbFacturacion.Enabled = RbCamionCisterna.Checked;
             CargarDatosFacturacion();
+            ActivarTC();
         }
 
         private void CbGasolineras_SelectedIndexChanged(object sender, EventArgs e)
@@ -235,6 +243,11 @@ namespace SuperGas.Forms.modulo_Distribucion
             if (vehiculo != null)
             {
                 var b = (MapaVehiculosSimple)vehiculo;
+
+                if (b.GalonesDisponibles == 0.00m)
+                    BtnDespachar.Enabled = false;
+                else
+                    BtnDespachar.Enabled = true;
                 TxtGalTanque.Text = b.GalonesDisponibles + "";
             }
         }
@@ -247,6 +260,8 @@ namespace SuperGas.Forms.modulo_Distribucion
                 var b = (MapaSimple)cisterna;
                 TxtGalCisterna.Text = b.GalonesDisponibles + "";
             }
+
+            if (CbCisternas.Text.Length == 0) TxtGalCisterna.Text = "";
         }
 
         private void TxtGalDespachar_TextChanged(object sender, EventArgs e)
@@ -255,14 +270,30 @@ namespace SuperGas.Forms.modulo_Distribucion
             {
                 decimal precio = decimal.TryParse(TxtPrecioGal.Text, out decimal p) ? p : 0.00m;
                 decimal galones = decimal.TryParse(TxtGalDespachar.Text, out decimal c) ? c : 0.00m;
+                decimal disponibles = decimal.TryParse(TxtGalTanque.Text, out decimal i) ? i : 0.00m;
 
                 TxtTotal.Text = decimal.Round(precio * galones, 2) + "";
-            }
-        }
 
-        private void CbTipoCombustible_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
+                if (galones > disponibles)
+                {
+                    MessageBox.Show("Los galones ingresados no pueden exceder a los disponibles en Bomba", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TxtGalDespachar.Text = "0.00";
+                }                   
+                
+            } 
+            else if (RbBombaCamion.Checked)
+            {
+                decimal precio = decimal.TryParse(TxtPrecioGal.Text, out decimal p) ? p : 0.00m;
+                decimal galones = decimal.TryParse(TxtGalDespachar.Text, out decimal c) ? c : 0.00m;
+                decimal disponibles = decimal.TryParse(TxtGalBomba.Text, out decimal i) ? i : 0.00m;             
+
+                if (galones > disponibles)
+                {
+                    MessageBox.Show("Los galones ingresados no pueden exceder a los disponibles en Bomba", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TxtGalDespachar.Text = "0.00";
+                }
+
+            }
         }
 
         private void CbTipoCombustible_SelectedIndexChanged(object sender, EventArgs e)
@@ -271,6 +302,130 @@ namespace SuperGas.Forms.modulo_Distribucion
             CargarBombas();
             CargarVehiculos();
             IngresoPrecioGalon();
+        }
+
+        private void BtnDespachar_Click(object sender, EventArgs e)
+        {
+            if (RbBombaCamion.Checked)
+            {
+                GuardarDespachoBomba();
+            }
+            else if (RbCamionCisterna.Checked) 
+            {
+                GuardarDespachoVehiculos();
+            }
+        }
+
+      
+
+        public void GuardarDespachoBomba() {
+
+            try
+            {
+                string mensaje = ValidarCamposDespachoBomba();
+                if (mensaje == "")
+                {
+                    var modelodespacho = GetModelDespachoBomba(0);
+                    string resultado = _despachosBombas.Insert(modelodespacho);
+
+                    if (resultado == "")
+                    {
+                        var vehiculo = _vehiculos.GetVehiculo(modelodespacho.VehiculoId);
+                        var bomba = _bombas.GetBomba(modelodespacho.BombaId);
+
+                        vehiculo.GalonesActuales += modelodespacho.GalonesDespachados;
+                        bomba.GalonesActuales -= modelodespacho.GalonesDespachados;
+                        bomba.GalonesDespachados += modelodespacho.GalonesDespachados;
+
+                        resultado = _vehiculos.Update(vehiculo) + "-" + _bombas.Update(bomba);
+
+                        TxtGalDespachar.Text = "";
+                        if(resultado == "-")
+                            MessageBox.Show("¡Cambios Guardados Exitosamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                DesactivarCampos();
+            }
+            catch (Exception ex)
+            {
+                DesactivarCampos();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private DespachosBombas GetModelDespachoBomba(int id)
+        {
+            return new DespachosBombas()
+            {
+                Id = id,
+                FechaDespacho = DtpFechaDespacho.Value,
+                EmpleadoId = Convert.ToInt64(CbEncargado.SelectedValue),
+                BombaId = Convert.ToInt32(CbBombas.SelectedValue),
+                VehiculoId = Convert.ToInt64(CbCamiones.SelectedValue),
+                TipoCombustibleId = Convert.ToInt32(CbTipoCombustible.SelectedValue),
+                GalonesDespachados = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0,
+                Observaciones = TxtObservaciones.Text,
+                //UsuarioIngreso = UserLogIn.User.Id
+            };
+        }
+
+        private string ValidarCamposDespachoBomba() {
+            decimal gal = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0.00m;
+            if (CbTipoCombustible.SelectedItem == null)
+                return "Debe seleccinar un Tipo de Combustible";
+            else if (CbEncargado.SelectedItem == null)
+                return "Debe seleccionar una Encargado";
+            else if (CbBombas.SelectedItem == null)
+                return "Debe seleccionar una Bomba";
+            else if (CbCamiones.SelectedItem == null)
+                return "Debe seleccionar un Camion";            
+            else if (gal == 0.00m)
+                return "Galones despachados debe ser mayor a 0.00";
+            else
+                return "";
+
+        }
+
+        public void DesactivarCampos() {
+            RbBombaCamion.Checked = false;
+            RbCamionCisterna.Checked = false;
+        }
+
+        public void ActivarTC() {
+
+            if (RbBombaCamion.Checked || RbCamionCisterna.Checked)
+            {
+                CbTipoCombustible.Enabled = true;
+                TxtGalDespachar.Enabled = true;
+                TxtObservaciones.Enabled = true;
+                BtnDespachar.Enabled = true;
+            }
+            else
+            {
+                CbTipoCombustible.Enabled = false;
+                TxtGalDespachar.Enabled = false;
+                TxtObservaciones.Enabled = false;
+                BtnDespachar.Enabled = false;
+            }          
+                
+        }
+
+        private void GuardarDespachoVehiculos()
+        {
+
+
         }
     }
 }

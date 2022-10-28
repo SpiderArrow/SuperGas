@@ -145,7 +145,6 @@
             this.TsUsuarios.Size = new System.Drawing.Size(1064, 27);
             this.TsUsuarios.TabIndex = 29;
             this.TsUsuarios.Text = "toolStrip1";
-            this.TsUsuarios.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.TsUsuarios_ItemClicked);
             // 
             // toolStripLabel1
             // 

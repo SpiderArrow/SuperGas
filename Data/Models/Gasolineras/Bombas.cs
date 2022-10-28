@@ -70,7 +70,8 @@ namespace Data.Models.Gasolineras
                                  select new MapaSimple
                                  {
                                      Id = b.Id,
-                                     Descripcion = t.Descripcion + " | " + b.Descripcion
+                                     Descripcion = t.Descripcion + " | " + b.Descripcion,
+                                     GalonesDisponibles = b.GalonesActuales
                                  }).ToList();
 
                     if (lista.Any())

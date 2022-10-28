@@ -13,6 +13,7 @@ namespace Data.Models.Despachos
     {
         [Key]
         public int Id { get; set; }
+        public long EmpleadoId { get; set; }
         public DateTime FechaDespacho { get; set; }
         public int TipoCombustibleId { get; set; }
         public long VehiculoId { get; set; }
@@ -20,7 +21,7 @@ namespace Data.Models.Despachos
         public decimal GalonesDespachados { get; set; }
         public decimal PrecioGalon { get; set; }
         public string Observaciones { get; set; }
-
+        public string UsuarioIngreso { get; set; }
         public List<MapaDespachosVehiculos> Listado()
         {
             try

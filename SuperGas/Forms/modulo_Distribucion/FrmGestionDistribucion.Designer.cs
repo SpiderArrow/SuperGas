@@ -279,11 +279,13 @@
             this.BtnVolver.Text = "  Volver";
             this.BtnVolver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnVolver.UseVisualStyleBackColor = false;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnDespachar
             // 
             this.BtnDespachar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.BtnDespachar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDespachar.Enabled = false;
             this.BtnDespachar.FlatAppearance.BorderSize = 0;
             this.BtnDespachar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
             this.BtnDespachar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -297,9 +299,11 @@
             this.BtnDespachar.Text = "   Despachar";
             this.BtnDespachar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDespachar.UseVisualStyleBackColor = false;
+            this.BtnDespachar.Click += new System.EventHandler(this.BtnDespachar_Click);
             // 
             // TxtObservaciones
             // 
+            this.TxtObservaciones.Enabled = false;
             this.TxtObservaciones.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtObservaciones.Location = new System.Drawing.Point(27, 309);
             this.TxtObservaciones.Multiline = true;
@@ -391,6 +395,7 @@
             // 
             // CbTipoCombustible
             // 
+            this.CbTipoCombustible.Enabled = false;
             this.CbTipoCombustible.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbTipoCombustible.FormattingEnabled = true;
             this.CbTipoCombustible.Location = new System.Drawing.Point(26, 149);
@@ -398,7 +403,6 @@
             this.CbTipoCombustible.Size = new System.Drawing.Size(224, 28);
             this.CbTipoCombustible.TabIndex = 53;
             this.CbTipoCombustible.SelectedIndexChanged += new System.EventHandler(this.CbTipoCombustible_SelectedIndexChanged);
-            this.CbTipoCombustible.SelectedValueChanged += new System.EventHandler(this.CbTipoCombustible_SelectedValueChanged);
             // 
             // groupBox1
             // 
@@ -474,9 +478,9 @@
             this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(507, 204);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 20);
+            this.label8.Size = new System.Drawing.Size(125, 20);
             this.label8.TabIndex = 47;
-            this.label8.Text = "gal. del Tanque:";
+            this.label8.Text = "gal. Disponibles:";
             // 
             // TxtGalBomba
             // 
@@ -500,6 +504,7 @@
             // 
             // TxtGalDespachar
             // 
+            this.TxtGalDespachar.Enabled = false;
             this.TxtGalDespachar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtGalDespachar.Location = new System.Drawing.Point(26, 230);
             this.TxtGalDespachar.Name = "TxtGalDespachar";

@@ -86,8 +86,8 @@ namespace SuperGas.Forms.modulo_Vehiculos
                     TxtGalones.Text = VehiculoUpd.CantidadGalones+"";
                     TxtGlDespachados.Text = VehiculoUpd.GalonesDespachados+"";
 
-                    TxtGlDespachados.Enabled = true;
-                    TxtActuales.Enabled = true;
+                    //TxtGlDespachados.Enabled = true;
+                    //TxtActuales.Enabled = true;
 
                 }
                 else
@@ -286,9 +286,9 @@ namespace SuperGas.Forms.modulo_Vehiculos
                 EmpleadoId = Convert.ToInt32(CbEncargado.SelectedValue),
                 Nombre = TxtNombre.Text,
                 Kilometraje = int.TryParse(TxtKilometraje.Text, out int k) ? k : 0,
-                CantidadGalones = int.TryParse(TxtGalones.Text, out int g) ? g : 0,
-                GalonesActuales = int.TryParse(TxtActuales.Text, out int ga) ? ga : 0,
-                GalonesDespachados = int.TryParse(TxtGlDespachados.Text, out int gd) ? gd : 0,
+                CantidadGalones = decimal.TryParse(TxtGalones.Text, out decimal g) ? g : 0,
+                GalonesActuales = decimal.TryParse(TxtActuales.Text, out decimal ga) ? ga : 0,
+                GalonesDespachados = decimal.TryParse(TxtGlDespachados.Text, out decimal gd) ? gd : 0,
                 Placa = TxtPlaca.Text,
                 Codigo = TxtCodigo.Text,
                 Modelo = TxtModelo.Text,
@@ -298,17 +298,16 @@ namespace SuperGas.Forms.modulo_Vehiculos
             };
         }
 
-        private void TsUsuarios_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void TxtGalones_TextChanged(object sender, EventArgs e)
         {
-            decimal totales = decimal.TryParse(TxtGalones.Text, out decimal p) ? p : 0.00m;
-            decimal despachados = decimal.TryParse(TxtGlDespachados.Text, out decimal c) ? c : 0.00m;
+            //decimal totales = decimal.TryParse(TxtGalones.Text, out decimal p) ? p : 0.00m;
+            //decimal despachados = decimal.TryParse(TxtGlDespachados.Text, out decimal c) ? c : 0.00m;
 
-            TxtActuales.Text = decimal.Round(totales - despachados, 2) + "";
+            //TxtActuales.Text = decimal.Round(totales - despachados, 2) + "";
+
+            
         }
+
+
     }
 }

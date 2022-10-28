@@ -13,13 +13,14 @@ namespace Data.Models.Despachos
     {
         [Key]
         public int Id { get; set; }
+        public long EmpleadoId { get; set; }
         public DateTime FechaDespacho { get; set; }
         public int TipoCombustibleId { get; set; }
         public int BombaId { get; set; }
         public long VehiculoId { get; set; }
         public decimal GalonesDespachados { get; set; }
         public string Observaciones { get; set; }
-
+        public string UsuarioIngreso { get; set; }
         public List<MapaDespachosBombas> Listado()
         {
             try
@@ -34,6 +35,7 @@ namespace Data.Models.Despachos
                                  select new MapaDespachosBombas
                                  {
                                      Id = d.Id,
+                                     FechaDespacho = d.FechaDespacho,
                                      BombaId = b.Id,
                                      CamionId = c.Id,
                                      TipoCombustibleId = tc.Id,
