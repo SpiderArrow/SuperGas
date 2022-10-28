@@ -48,7 +48,7 @@
             this.BtnDespachar = new System.Windows.Forms.Button();
             this.TxtObservaciones = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LbglCisterna = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CbCisternas = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,9 +62,9 @@
             this.DtpFechaDespacho = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtGalTanque = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.LbglCamion = new System.Windows.Forms.Label();
             this.TxtGalBomba = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.LbglBombas = new System.Windows.Forms.Label();
             this.TxtGalDespachar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@
             this.CbBombas = new System.Windows.Forms.ComboBox();
             this.CbCamiones = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LbMensajeFactura = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.GbFacturacion.SuspendLayout();
@@ -92,6 +93,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.LbMensajeFactura);
             this.panel2.Controls.Add(this.GbFacturacion);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.CbEncargado);
@@ -101,7 +103,7 @@
             this.panel2.Controls.Add(this.BtnDespachar);
             this.panel2.Controls.Add(this.TxtObservaciones);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.LbglCisterna);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.CbCisternas);
             this.panel2.Controls.Add(this.label5);
@@ -113,9 +115,9 @@
             this.panel2.Controls.Add(this.DtpFechaDespacho);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.TxtGalTanque);
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.LbglCamion);
             this.panel2.Controls.Add(this.TxtGalBomba);
-            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.LbglBombas);
             this.panel2.Controls.Add(this.TxtGalDespachar);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label11);
@@ -225,7 +227,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(774, 59);
+            this.label13.Location = new System.Drawing.Point(699, 60);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(95, 20);
             this.label13.TabIndex = 72;
@@ -235,9 +237,9 @@
             // 
             this.CbEncargado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbEncargado.FormattingEnabled = true;
-            this.CbEncargado.Location = new System.Drawing.Point(778, 83);
+            this.CbEncargado.Location = new System.Drawing.Point(703, 83);
             this.CbEncargado.Name = "CbEncargado";
-            this.CbEncargado.Size = new System.Drawing.Size(241, 28);
+            this.CbEncargado.Size = new System.Drawing.Size(316, 28);
             this.CbEncargado.TabIndex = 71;
             // 
             // label6
@@ -272,7 +274,7 @@
             this.BtnVolver.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVolver.ForeColor = System.Drawing.Color.White;
             this.BtnVolver.Image = global::SuperGas.Properties.Resources.Refresh_16x;
-            this.BtnVolver.Location = new System.Drawing.Point(171, 403);
+            this.BtnVolver.Location = new System.Drawing.Point(171, 427);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(126, 44);
             this.BtnVolver.TabIndex = 68;
@@ -292,7 +294,7 @@
             this.BtnDespachar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDespachar.ForeColor = System.Drawing.Color.White;
             this.BtnDespachar.Image = global::SuperGas.Properties.Resources.OrderDown_16x;
-            this.BtnDespachar.Location = new System.Drawing.Point(27, 403);
+            this.BtnDespachar.Location = new System.Drawing.Point(26, 427);
             this.BtnDespachar.Name = "BtnDespachar";
             this.BtnDespachar.Size = new System.Drawing.Size(126, 44);
             this.BtnDespachar.TabIndex = 67;
@@ -321,15 +323,15 @@
             this.label4.TabIndex = 65;
             this.label4.Text = "Observaciones:";
             // 
-            // label1
+            // LbglCisterna
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(889, 204);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "gal. Disponibles:";
+            this.LbglCisterna.AutoSize = true;
+            this.LbglCisterna.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbglCisterna.Location = new System.Drawing.Point(889, 204);
+            this.LbglCisterna.Name = "LbglCisterna";
+            this.LbglCisterna.Size = new System.Drawing.Size(103, 17);
+            this.LbglCisterna.TabIndex = 64;
+            this.LbglCisterna.Text = "gal. Disponibles:";
             // 
             // label2
             // 
@@ -411,7 +413,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(27, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(730, 89);
+            this.groupBox1.Size = new System.Drawing.Size(655, 89);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Despacho";
@@ -420,7 +422,7 @@
             // 
             this.RbCamionCisterna.AutoSize = true;
             this.RbCamionCisterna.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RbCamionCisterna.Location = new System.Drawing.Point(398, 33);
+            this.RbCamionCisterna.Location = new System.Drawing.Point(299, 33);
             this.RbCamionCisterna.Name = "RbCamionCisterna";
             this.RbCamionCisterna.Size = new System.Drawing.Size(266, 24);
             this.RbCamionCisterna.TabIndex = 1;
@@ -433,7 +435,7 @@
             // 
             this.RbBombaCamion.AutoSize = true;
             this.RbBombaCamion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RbBombaCamion.Location = new System.Drawing.Point(67, 33);
+            this.RbBombaCamion.Location = new System.Drawing.Point(22, 33);
             this.RbBombaCamion.Name = "RbBombaCamion";
             this.RbBombaCamion.Size = new System.Drawing.Size(259, 24);
             this.RbBombaCamion.TabIndex = 0;
@@ -447,16 +449,16 @@
             this.DtpFechaDespacho.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpFechaDespacho.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpFechaDespacho.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFechaDespacho.Location = new System.Drawing.Point(778, 27);
+            this.DtpFechaDespacho.Location = new System.Drawing.Point(703, 27);
             this.DtpFechaDespacho.Name = "DtpFechaDespacho";
-            this.DtpFechaDespacho.Size = new System.Drawing.Size(241, 26);
+            this.DtpFechaDespacho.Size = new System.Drawing.Size(316, 26);
             this.DtpFechaDespacho.TabIndex = 50;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(774, 4);
+            this.label7.Location = new System.Drawing.Point(699, 4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 20);
             this.label7.TabIndex = 49;
@@ -472,15 +474,15 @@
             this.TxtGalTanque.TabIndex = 48;
             this.TxtGalTanque.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label8
+            // LbglCamion
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(507, 204);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 20);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "gal. Disponibles:";
+            this.LbglCamion.AutoSize = true;
+            this.LbglCamion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbglCamion.Location = new System.Drawing.Point(507, 204);
+            this.LbglCamion.Name = "LbglCamion";
+            this.LbglCamion.Size = new System.Drawing.Size(103, 17);
+            this.LbglCamion.TabIndex = 47;
+            this.LbglCamion.Text = "gal. Disponibles:";
             // 
             // TxtGalBomba
             // 
@@ -492,15 +494,15 @@
             this.TxtGalBomba.TabIndex = 46;
             this.TxtGalBomba.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label9
+            // LbglBombas
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(507, 125);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 20);
-            this.label9.TabIndex = 45;
-            this.label9.Text = "gal. Disponibles:";
+            this.LbglBombas.AutoSize = true;
+            this.LbglBombas.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbglBombas.Location = new System.Drawing.Point(507, 125);
+            this.LbglBombas.Name = "LbglBombas";
+            this.LbglBombas.Size = new System.Drawing.Size(103, 17);
+            this.LbglBombas.TabIndex = 45;
+            this.LbglBombas.Text = "gal. Disponibles:";
             // 
             // TxtGalDespachar
             // 
@@ -578,6 +580,18 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // LbMensajeFactura
+            // 
+            this.LbMensajeFactura.AutoSize = true;
+            this.LbMensajeFactura.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbMensajeFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.LbMensajeFactura.Location = new System.Drawing.Point(24, 399);
+            this.LbMensajeFactura.Name = "LbMensajeFactura";
+            this.LbMensajeFactura.Size = new System.Drawing.Size(287, 18);
+            this.LbMensajeFactura.TabIndex = 74;
+            this.LbMensajeFactura.Text = "* Espere mientras se genera su factura";
+            this.LbMensajeFactura.Visible = false;
+            // 
             // FrmGestionDistribucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,16 +624,16 @@
         private System.Windows.Forms.DateTimePicker DtpFechaDespacho;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtGalTanque;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label LbglCamion;
         private System.Windows.Forms.TextBox TxtGalBomba;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label LbglBombas;
         private System.Windows.Forms.TextBox TxtGalDespachar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox CbBombas;
         private System.Windows.Forms.ComboBox CbCamiones;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LbglCisterna;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CbCisternas;
         private System.Windows.Forms.Label label5;
@@ -644,5 +658,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label LbMensajeFactura;
     }
 }

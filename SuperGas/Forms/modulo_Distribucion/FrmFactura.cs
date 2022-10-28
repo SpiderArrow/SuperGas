@@ -65,7 +65,9 @@ namespace SuperGas.Forms.modulo_Distribucion
                     new ReportParameter("Direccion", Factura.Direccion),
                     new ReportParameter("NIT",Factura.NIT),
                     new ReportParameter("Vendedor",usuario.Name),
-                    new ReportParameter("Correo",usuario.Email),
+                    new ReportParameter("Correo",usuario.Email),                    
+                    //new ReportParameter("Vendedor","JOL"),
+                    //new ReportParameter("Correo","JOL"),
                     new ReportParameter("TotalLetras", totalletra),
                 };
 

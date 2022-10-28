@@ -88,6 +88,7 @@
     <Compile Include="Mapas\Direcciones\MapaRutas.cs" />
     <Compile Include="Mapas\Empleados\MapaEmpleado.cs" />
     <Compile Include="Mapas\Empleados\MapaEmpleadoSimple.cs" />
+    <Compile Include="Mapas\Entradas\MapaEntradas.cs" />
     <Compile Include="Mapas\Facturas\MapaDetalleFactura.cs" />
     <Compile Include="Mapas\Facturas\MapaFactura.cs" />
     <Compile Include="Mapas\Gasolineras\MapaBomba.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Mapas\Gasolineras\MapaPrecioGalon.cs" />
     <Compile Include="Mapas\Gasolineras\MapaSimple.cs" />
     <Compile Include="Mapas\Limpieza\MapaLimpieza.cs" />
+    <Compile Include="Mapas\Reportes\MapaIngresos.cs" />
     <Compile Include="Mapas\Vehiculos\MapaVehiculos.cs" />
     <Compile Include="Mapas\Vehiculos\MapaVehiculosSimple.cs" />
     <Compile Include="Mapas\_helpers\MapaAsigna.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Models\Direcciones\Rutas.cs" />
     <Compile Include="Models\Empleados\Empleado.cs" />
     <Compile Include="Models\Empleados\RolEmpleado.cs" />
+    <Compile Include="Models\Entradas\HistorialEntradas.cs" />
     <Compile Include="Models\Facturas\DetalleFactura.cs" />
     <Compile Include="Models\Facturas\Factura.cs" />
     <Compile Include="Models\Gasolineras\Bombas.cs" />

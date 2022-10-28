@@ -210,8 +210,14 @@ namespace SuperGas.Forms.modulo_Distribucion
             CbBombas.Enabled = RbBombaCamion.Checked;
             CbCamiones.Enabled = RbBombaCamion.Checked;
             CbTipoCombustible.Enabled = RbBombaCamion.Checked;
+            DtpFechaDespacho.Enabled = RbBombaCamion.Checked;
+            CbEncargado.Enabled = RbBombaCamion.Checked;
             LimpiarDatosFacturacion();
             ActivarTC();
+
+            LbglBombas.Text = "gal. Disp. Despachar:";
+            LbglCamion.Text = "gal. Disp. Llenar: ";
+            LbglCisterna.Text = "gal. Disponibles:";
         }
 
         private void RbCamionCisterna_CheckedChanged(object sender, EventArgs e)
@@ -220,8 +226,14 @@ namespace SuperGas.Forms.modulo_Distribucion
             CbGasolineras.Enabled = RbCamionCisterna.Checked;
             CbCisternas.Enabled = RbCamionCisterna.Checked;
             GbFacturacion.Enabled = RbCamionCisterna.Checked;
+            DtpFechaDespacho.Enabled = RbCamionCisterna.Checked;
+            CbEncargado.Enabled = RbCamionCisterna.Checked;
             CargarDatosFacturacion();
             ActivarTC();
+
+            LbglBombas.Text = "gal. Disponibles:";
+            LbglCamion.Text = "gal. Disp. Despachar: ";
+            LbglCisterna.Text = "gal. Disp. Llenar:";
         }
 
         private void CbGasolineras_SelectedIndexChanged(object sender, EventArgs e)
@@ -236,7 +248,18 @@ namespace SuperGas.Forms.modulo_Distribucion
             if (bomba != null)
             {
                 var b = (MapaSimple)bomba;
-                TxtGalBomba.Text = b.GalonesDisponibles + "";
+                decimal galBomba = 0.00m;
+
+                if (RbBombaCamion.Checked)
+                {
+                    galBomba = b.GalonesActuales;
+                    if (galBomba == 0.00m)
+                        BtnDespachar.Enabled = false;
+                    else
+                        BtnDespachar.Enabled = true;
+                }                
+
+                TxtGalBomba.Text = decimal.Round(galBomba, 2) + "";
             }
         }
 
@@ -247,11 +270,24 @@ namespace SuperGas.Forms.modulo_Distribucion
             {
                 var b = (MapaVehiculosSimple)vehiculo;
 
-                if (b.GalonesDisponibles == 0.00m)
+                decimal galCamion = 0.00m;
+
+                if (RbBombaCamion.Checked)
+                {
+                    galCamion = b.Galones - b.GalonesActuales;
+                }
+                else if (RbCamionCisterna.Checked)
+                {
+                    galCamion = b.GalonesActuales;
+                }
+
+                if (galCamion == 0.00m)
                     BtnDespachar.Enabled = false;
                 else
                     BtnDespachar.Enabled = true;
-                TxtGalTanque.Text = b.GalonesDisponibles + "";
+
+                TxtGalTanque.Text = decimal.Round(galCamion, 2) + "";
+
             }
         }
 
@@ -261,7 +297,19 @@ namespace SuperGas.Forms.modulo_Distribucion
             if (cisterna != null)
             {
                 var b = (MapaSimple)cisterna;
-                TxtGalCisterna.Text = b.GalonesDisponibles + "";
+
+                decimal galCist = 0.00m;
+
+                if (RbCamionCisterna.Checked)
+                {
+                    galCist = b.Galones - b.GalonesActuales;
+                    if (galCist == 0.00m)
+                        BtnDespachar.Enabled = false;
+                    else
+                        BtnDespachar.Enabled = true;
+                }
+
+                TxtGalCisterna.Text = decimal.Round(galCist, 2) + "";
             }
 
             if (CbCisternas.Text.Length == 0) TxtGalCisterna.Text = "";
@@ -315,7 +363,7 @@ namespace SuperGas.Forms.modulo_Distribucion
             else if (RbCamionCisterna.Checked) 
             {
                 GuardarDespachoVehiculos();
-                GenerarFactura();
+               
             }
         }
 
@@ -342,9 +390,12 @@ namespace SuperGas.Forms.modulo_Distribucion
 
                         resultado = _vehiculos.Update(vehiculo) + "-" + _bombas.Update(bomba);
 
-                        TxtGalDespachar.Text = "";
-                        if(resultado == "-")
+                        if (resultado == "-")
+                        {
                             MessageBox.Show("¡Cambios Guardados Exitosamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+                        }
+                            
                         else
                             MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -359,6 +410,7 @@ namespace SuperGas.Forms.modulo_Distribucion
                 }
 
                 DesactivarCampos();
+                LbMensajeFactura.Visible = false;
             }
             catch (Exception ex)
             {
@@ -380,7 +432,7 @@ namespace SuperGas.Forms.modulo_Distribucion
                 TipoCombustibleId = Convert.ToInt32(CbTipoCombustible.SelectedValue),
                 GalonesDespachados = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0,
                 Observaciones = TxtObservaciones.Text,
-                //UsuarioIngreso = UserLogIn.User.Id
+                UsuarioIngreso = UserLogIn.User.Id
             };
         }
 
@@ -404,6 +456,8 @@ namespace SuperGas.Forms.modulo_Distribucion
         public void DesactivarCampos() {
             RbBombaCamion.Checked = false;
             RbCamionCisterna.Checked = false;
+
+
         }
 
         public void ActivarTC() {
@@ -448,9 +502,13 @@ namespace SuperGas.Forms.modulo_Distribucion
 
                         resultado = _vehiculos.Update(vehiculo) + "-" + _cisternas.Update(Cisterna);
 
-                        TxtGalDespachar.Text = "";
                         if (resultado == "-")
+                        {
                             MessageBox.Show("¡Cambios Guardados Exitosamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            GenerarFactura();
+                            LbMensajeFactura.Visible = true;
+                        }
+                            
                         else
                             MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -465,6 +523,7 @@ namespace SuperGas.Forms.modulo_Distribucion
                 }
 
                 DesactivarCampos();
+                LbMensajeFactura.Visible = false;
             }
             catch (Exception ex)
             {
@@ -485,14 +544,22 @@ namespace SuperGas.Forms.modulo_Distribucion
                 TipoCombustibleId = Convert.ToInt32(CbTipoCombustible.SelectedValue),
                 GalonesDespachados = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0.00m,
                 Observaciones = TxtObservaciones.Text,
-                //UsuarioIngreso = UserLogIn.User.Id
+                UsuarioIngreso = UserLogIn.User.Id
             };
         }
 
         private string ValidarCamposDespachoVehiculo()
         {
             decimal gal = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0.00m;
-            if (CbTipoCombustible.SelectedItem == null)
+            decimal galcist = decimal.TryParse(TxtGalCisterna.Text, out decimal gc) ? gc : 0.00m;
+            decimal galtan = decimal.TryParse(TxtGalTanque.Text, out decimal gt) ? gt : 0.00m;
+            if (gal == 0.00m)
+                return "Galones despachados debe ser mayor a 0.00";
+            else if (galcist == 0.00m)
+                return "La cisterna no tiene galones disponibles para llenar";
+            else if (galtan == 0.00m)
+                return "El camion no tiene galones disponibles para despachar";
+            else if (CbTipoCombustible.SelectedItem == null)
                 return "Debe seleccinar un Tipo de Combustible";
             else if (CbEncargado.SelectedItem == null)
                 return "Debe seleccionar una Encargado";
@@ -506,8 +573,6 @@ namespace SuperGas.Forms.modulo_Distribucion
                 return "Debe ingresar un Nit";
             else if (TxtNombre.Text == "")
                 return "Debe seleccionar un Nombre";
-            else if (gal == 0.00m)
-                return "Galones despachados debe ser mayor a 0.00";
             else
                 return "";
 
@@ -557,7 +622,7 @@ namespace SuperGas.Forms.modulo_Distribucion
             {
                 DespachosVehiculoId = idDespacho,
                 GasolineraId = Convert.ToInt64(CbGasolineras.SelectedValue),
-                UserId = UserLogIn.User.Id,
+                //UserId = UserLogIn.User.Id,
                 NoFactura = txt,
                 Serie = "A",
                 FechaVenta = DtpFechaDespacho.Value,

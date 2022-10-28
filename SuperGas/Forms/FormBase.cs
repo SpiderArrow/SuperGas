@@ -22,7 +22,7 @@ using SuperGas.Forms.modulo_Bombas;
 using SuperGas.Forms.modulo_Pistas;
 using SuperGas.Forms.modulo_Distribucion;
 using SuperGas.Forms.modulo_Cisternas;
-
+using SuperGas.Forms.modulo_Entradas;
 
 namespace SuperGas.Forms
 {
@@ -205,5 +205,9 @@ namespace SuperGas.Forms
             AbrirFormHijo(new IngresoPrecioGalon());
         }
 
+        private void Entradas_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmEntradas());
+        }
     }
 }

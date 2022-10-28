@@ -15,6 +15,7 @@ using Data.Models.Limpieza;
 using Data.Models.Despachos;
 using Data.Models.Facturas;
 using Data.Models.Asignacion;
+using Data.Models.Entradas;
 
 namespace Data.Models
 {
@@ -64,6 +65,9 @@ namespace Data.Models
         //ASIGNACIONES
         public DbSet<AsignacionRuta> AsignacionRutas { get; set; }
         public DbSet<AsignacionZonas> AsignacionZonas { get; set; }
+
+        //ENTRADAS
+        public DbSet<HistorialEntradas> HistorialEntradas { get; set; }
 
 
     }

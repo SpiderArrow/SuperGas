@@ -39,7 +39,7 @@ namespace Data.Models.Gasolineras
                                      TipoCombustibleId = tc.Id,
                                      TipoCombustible = tc.Descripcion,
                                      GasolineraId = g.Id,
-                                     Gasolinera = tc.Descripcion,
+                                     Gasolinera = g.Nombre,
                                      Nombre = c.Descripcion,
                                      Galones = c.CantidadGalones,
                                      Actuales = c.GalonesActuales,
@@ -103,7 +103,8 @@ namespace Data.Models.Gasolineras
                                  {
                                      Id = c.Id,
                                      Descripcion = c.Descripcion,
-                                     GalonesDisponibles = c.GalonesActuales
+                                     GalonesActuales = c.GalonesActuales,
+                                     Galones = c.CantidadGalones
                                  }).ToList();
 
                     if (lista.Any())

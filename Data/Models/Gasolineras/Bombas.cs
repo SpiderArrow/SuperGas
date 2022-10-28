@@ -71,7 +71,8 @@ namespace Data.Models.Gasolineras
                                  {
                                      Id = b.Id,
                                      Descripcion = t.Descripcion + " | " + b.Descripcion,
-                                     GalonesDisponibles = b.GalonesActuales
+                                     GalonesActuales = b.GalonesActuales,
+                                     Galones = b.GalonesActuales
                                  }).ToList();
 
                     if (lista.Any())

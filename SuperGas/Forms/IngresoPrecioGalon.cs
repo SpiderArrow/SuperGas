@@ -207,7 +207,7 @@ namespace SuperGas.Forms
                 if (Getpre != null)
                 {
                     var dialog =
-                            MessageBox.Show("¡Esta seguro que desea eliminar el Precio de Galon!", "Eliminar Producto",
+                            MessageBox.Show("¡Esta seguro que desea eliminar el Precio de Galon!", "Eliminar Precio Galon",
                             MessageBoxButtons.YesNoCancel,
                             MessageBoxIcon.Question);
 

@@ -18,7 +18,7 @@ namespace SuperGas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormBase());
+            Application.Run(new Login());
         }
     }
 }

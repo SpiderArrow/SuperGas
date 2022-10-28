@@ -184,6 +184,12 @@
     <Compile Include="Forms\modulo_Empleado\FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\modulo_Entradas\FrmEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\modulo_Entradas\FrmEntradas.Designer.cs">
+      <DependentUpon>FrmEntradas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\modulo_Limpieza\FrmConfiguracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     <EmbeddedResource Include="Forms\modulo_Empleado\FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\modulo_Entradas\FrmEntradas.resx">
+      <DependentUpon>FrmEntradas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\modulo_Limpieza\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,8 +353,10 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\modulo_ventas\Comprobante.rdlc" />
+    <EmbeddedResource Include="Reports\modulo_ventas\Ingresos.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Data.Mapas.Documentos.MapaTipoDocumento.datasource" />
+    <None Include="Properties\DataSources\Data.Mapas.Facturas.MapaDetalleFactura.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Precios.MapaTipoPrecios.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Productos.MapaIngresoDetalles.datasource" />
     <None Include="Properties\DataSources\Data.Mapas.Productos.MapaProductos1.datasource" />
@@ -418,9 +429,7 @@
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\modulo_Entradas\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

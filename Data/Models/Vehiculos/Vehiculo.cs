@@ -93,7 +93,8 @@ namespace Data.Models.Vehiculos
                                  {
                                      Id = v.Id,
                                      DescripcionVehiculo = v.Codigo +" | "+v.Nombre,
-                                     GalonesDisponibles = v.CantidadGalones - v.GalonesActuales
+                                     GalonesActuales = v.GalonesActuales,
+                                     Galones = v.CantidadGalones
                                  }).ToList();
 
                     if (lista.Any())

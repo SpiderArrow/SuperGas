@@ -2,62 +2,66 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataMapasVentas">
+    <DataSource Name="DataMapasFacturas">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>434e302e-ecc1-4ce7-a2fa-dc4f010367b3</rd:DataSourceID>
+      <rd:DataSourceID>03337df5-05be-4228-9f3f-139792000921</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSetDetalleFactura">
       <Query>
-        <DataSourceName>DataMapasVentas</DataSourceName>
+        <DataSourceName>DataMapasFacturas</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Cantidad">
-          <DataField>Cantidad</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="CantidadGalones">
+          <DataField>CantidadGalones</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Cisterna">
+          <DataField>Cisterna</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Costo">
           <DataField>Costo</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="Descuento">
-          <DataField>Descuento</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="DespachoVehiculoId">
+          <DataField>DespachoVehiculoId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="FacturaId">
           <DataField>FacturaId</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
+        <Field Name="Gasolinera">
+          <DataField>Gasolinera</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Id">
           <DataField>Id</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="NombreProducto">
-          <DataField>NombreProducto</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Precio">
           <DataField>Precio</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="ProductoId">
-          <DataField>ProductoId</DataField>
-          <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
         <Field Name="SubTotal">
           <DataField>SubTotal</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="Vehiculo">
+          <DataField>Vehiculo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>Data.Mapas.Ventas</rd:DataSetName>
+        <rd:DataSetName>Data.Mapas.Facturas</rd:DataSetName>
         <rd:TableName>MapaDetalleFactura</rd:TableName>
-        <rd:ObjectDataSourceType>Data.Mapas.Ventas.MapaDetalleFactura, Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>Data.Mapas.Facturas.MapaDetalleFactura, Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1219,7 +1223,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Cantidad.Value &gt; 0, Fields!Cantidad.Value, "")</Value>
+                                  <Value>=IIf(Fields!CantidadGalones.Value &gt; 0, Fields!CantidadGalones.Value, "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1260,7 +1264,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!ProductoId.Value &gt; 0, Fields!ProductoId.Value, "")</Value>
+                                  <Value>=IIf(Fields!CantidadGalones.Value &gt; 0, "gal.", "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1301,7 +1305,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NombreProducto.Value</Value>
+                                  <Value>=IIf(Fields!CantidadGalones.Value &gt; 0, ("Galones Despachados en "&amp; Fields!Cisterna.Value ), "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1329,6 +1333,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1340,7 +1345,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf((Fields!Precio.Value - Fields!Descuento.Value) &gt; 0, (Fields!Precio.Value - Fields!Descuento.Value), "")</Value>
+                                  <Value>=IIf(Fields!Precio.Value &gt; 0, Fields!Precio.Value, "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>

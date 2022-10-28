@@ -14,7 +14,6 @@ namespace Data.Models.Facturas
         [Key]
         public long Id { get; set; }
         public int DespachosVehiculoId { get; set; }
-        public int TipoMovimientoId { get; set; }
         public long GasolineraId { get; set; }
         public string UserId { get; set; }
         public string NoFactura { get; set; }
@@ -36,6 +35,8 @@ namespace Data.Models.Facturas
                 {
                     lista = (from f in ctx.Facturas.AsEnumerable() 
                              join u in ctx.Users on f.UserId equals u.Id
+                             join d in ctx.DespachosVehiculos on f. DespachosVehiculoId equals d.Id
+                             join e in ctx.Empleados on d.EmpleadoId equals e.Id
                              orderby f.FechaVenta descending
 
                              select new MapaFactura
@@ -43,6 +44,7 @@ namespace Data.Models.Facturas
                                  Id = f.Id,
                                  FechaVenta = f.FechaVenta.ToString("dd/MM/yyyy hh:mm tt"),
                                  Vendedor = u.Name,
+                                 Encargado = e.Nombres +" "+e.Apellidos,
                                  NoFactura = f.NoFactura,
                                  Nombre = f.Nombre,
                                  Direccion = f.Direccion,
