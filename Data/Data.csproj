@@ -100,10 +100,6 @@
     <Compile Include="Mapas\Vehiculos\MapaVehiculos.cs" />
     <Compile Include="Mapas\Vehiculos\MapaVehiculosSimple.cs" />
     <Compile Include="Mapas\_helpers\MapaAsigna.cs" />
-    <Compile Include="Migrations\202210272323158_m11.cs" />
-    <Compile Include="Migrations\202210272323158_m11.designer.cs">
-      <DependentUpon>202210272323158_m11.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Asignacion\AsignacionRuta.cs" />
     <Compile Include="Models\Asignacion\AsignacionZonas.cs" />
     <Compile Include="Models\Despachos\DespachosBombas.cs" />
@@ -113,7 +109,6 @@
     <Compile Include="Models\Empleados\RolEmpleado.cs" />
     <Compile Include="Models\Facturas\DetalleFactura.cs" />
     <Compile Include="Models\Facturas\Factura.cs" />
-    <Compile Include="Models\Facturas\TipoMovimiento.cs" />
     <Compile Include="Models\Gasolineras\Bombas.cs" />
     <Compile Include="Models\Gasolineras\Cisternas.cs" />
     <Compile Include="Models\Gasolineras\Empresas.cs" />
@@ -141,9 +136,6 @@
     <Compile Include="Security\ApplicationUserManager.cs" />
     <Compile Include="Security\ModelState.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="Migrations\202210272323158_m11.resx">
-      <DependentUpon>202210272323158_m11.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

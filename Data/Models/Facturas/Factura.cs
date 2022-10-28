@@ -35,7 +35,6 @@ namespace Data.Models.Facturas
                 using (var ctx = new ModelContext())
                 {
                     lista = (from f in ctx.Facturas.AsEnumerable() 
-                             join m in ctx.TipoMovimientos on f.TipoMovimientoId equals m.Id
                              join u in ctx.Users on f.UserId equals u.Id
                              orderby f.FechaVenta descending
 
@@ -48,7 +47,6 @@ namespace Data.Models.Facturas
                                  Nombre = f.Nombre,
                                  Direccion = f.Direccion,
                                  NIT = f.NIT,
-                                 Movimiento = m.Descripcion,
                                  TotalFactura = f.TotalFactura
                              }).ToList();
 

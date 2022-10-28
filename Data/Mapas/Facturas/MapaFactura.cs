@@ -15,7 +15,6 @@ namespace Data.Mapas.Facturas
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string NIT { get; set; }
-        public string Movimiento { get; set; }
         public decimal TotalFactura { get; set; }
     }
 }

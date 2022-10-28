@@ -57,7 +57,6 @@ namespace Data.Models
         public DbSet<DespachosVehiculos> DespachosVehiculos { get; set; }
 
         //FACTURACION
-        public DbSet<TipoMovimiento> TipoMovimientos { get; set; }
         public DbSet<DetalleFactura> DetalleFacturas { get; set; }
         public DbSet<Factura> Facturas{ get; set; }
 

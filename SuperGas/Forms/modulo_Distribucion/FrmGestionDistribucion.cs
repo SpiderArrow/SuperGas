@@ -17,6 +17,7 @@ using Data.Mapas.Gasolineras;
 using Data.Mapas.Despachos;
 using Data.Models.Despachos;
 using SuperGas.Globals;
+using Data.Models.Facturas;
 
 namespace SuperGas.Forms.modulo_Distribucion
 {
@@ -31,6 +32,8 @@ namespace SuperGas.Forms.modulo_Distribucion
         readonly Cisternas _cisternas = new Cisternas();
         readonly Empleado _empleados = new Empleado();
         readonly PrecioGalon _preciosGalon = new PrecioGalon();
+        readonly Factura _factura = new Factura();
+        readonly DetalleFactura _detalleFactura = new DetalleFactura();
         private List<PrecioGalon> _listadoPreciosGalon = new List<PrecioGalon>();
         private DateTime Hoy = new DateTime();
 
@@ -283,7 +286,6 @@ namespace SuperGas.Forms.modulo_Distribucion
             } 
             else if (RbBombaCamion.Checked)
             {
-                decimal precio = decimal.TryParse(TxtPrecioGal.Text, out decimal p) ? p : 0.00m;
                 decimal galones = decimal.TryParse(TxtGalDespachar.Text, out decimal c) ? c : 0.00m;
                 decimal disponibles = decimal.TryParse(TxtGalBomba.Text, out decimal i) ? i : 0.00m;             
 
@@ -313,6 +315,7 @@ namespace SuperGas.Forms.modulo_Distribucion
             else if (RbCamionCisterna.Checked) 
             {
                 GuardarDespachoVehiculos();
+                GenerarFactura();
             }
         }
 
@@ -425,7 +428,184 @@ namespace SuperGas.Forms.modulo_Distribucion
         private void GuardarDespachoVehiculos()
         {
 
+            try
+            {
+                string mensaje = ValidarCamposDespachoVehiculo();
+                if (mensaje == "")
+                {
+                    var modelodespacho = GetModelDespachoVehiculo(0);
+                    string resultado = _despachosVehiculos.Insert(modelodespacho);
+
+                    if (resultado == "")
+                    {
+                        var vehiculo = _vehiculos.GetVehiculo(modelodespacho.VehiculoId);
+                        var Cisterna = _cisternas.GetCisterna(modelodespacho.CisternaId);
+
+                        Cisterna.GalonesActuales += modelodespacho.GalonesDespachados;
+
+                        vehiculo.GalonesActuales -= modelodespacho.GalonesDespachados;
+                        vehiculo.GalonesDespachados += modelodespacho.GalonesDespachados;
+
+                        resultado = _vehiculos.Update(vehiculo) + "-" + _cisternas.Update(Cisterna);
+
+                        TxtGalDespachar.Text = "";
+                        if (resultado == "-")
+                            MessageBox.Show("¡Cambios Guardados Exitosamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                DesactivarCampos();
+            }
+            catch (Exception ex)
+            {
+                DesactivarCampos();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private DespachosVehiculos GetModelDespachoVehiculo(int id)
+        {
+            return new DespachosVehiculos()
+            {
+                Id = id,
+                FechaDespacho = DtpFechaDespacho.Value,
+                EmpleadoId = Convert.ToInt64(CbEncargado.SelectedValue),
+                CisternaId = Convert.ToInt32(CbCisternas.SelectedValue),
+                VehiculoId = Convert.ToInt64(CbCamiones.SelectedValue),
+                TipoCombustibleId = Convert.ToInt32(CbTipoCombustible.SelectedValue),
+                GalonesDespachados = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0.00m,
+                Observaciones = TxtObservaciones.Text,
+                //UsuarioIngreso = UserLogIn.User.Id
+            };
+        }
+
+        private string ValidarCamposDespachoVehiculo()
+        {
+            decimal gal = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0.00m;
+            if (CbTipoCombustible.SelectedItem == null)
+                return "Debe seleccinar un Tipo de Combustible";
+            else if (CbEncargado.SelectedItem == null)
+                return "Debe seleccionar una Encargado";
+            else if (CbCisternas.SelectedItem == null)
+                return "Debe seleccionar una Cisterna";
+            else if (CbCamiones.SelectedItem == null)
+                return "Debe seleccionar un Camion";
+            else if (TxtDireccion.Text == "")
+                return "Debe ingresar una direccion";
+            else if (TxtNit.Text == "")
+                return "Debe ingresar un Nit";
+            else if (TxtNombre.Text == "")
+                return "Debe seleccionar un Nombre";
+            else if (gal == 0.00m)
+                return "Galones despachados debe ser mayor a 0.00";
+            else
+                return "";
 
         }
+
+        public void GenerarFactura() {
+
+            try
+            {
+                var Factura = GetModelFactura();
+                string result = _factura.Insertar(Factura);
+
+                var Detalle = GetModelDetalle();
+                string result2 = _detalleFactura.Insertar(Detalle);
+
+                if (result == "" && result2 == "")
+                {
+
+                    if (Application.OpenForms["FrmFactura"] == null)
+                    {
+                        FrmFactura factura = new FrmFactura(Detalle.FacturaId);
+                        factura.Show();
+                    }
+                    else
+                        Application.OpenForms["FrmFactura"].Activate();
+                    
+                }
+                else
+                {
+
+                    MessageBox.Show(result + "-" + result2, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        public Factura GetModelFactura()
+        {
+            string txt = ObtenerNumero(_factura.LastNoFactura(), "FC-");
+            var idDespacho = _despachosVehiculos.LastIdDespacho();
+
+            return new Factura()
+            {
+                DespachosVehiculoId = idDespacho,
+                GasolineraId = Convert.ToInt64(CbGasolineras.SelectedValue),
+                UserId = UserLogIn.User.Id,
+                NoFactura = txt,
+                Serie = "A",
+                FechaVenta = DtpFechaDespacho.Value,
+                Nombre = TxtNombre.Text,
+                Direccion = TxtDireccion.Text,
+                NIT = TxtNit.Text,
+                TotalFactura = Convert.ToDecimal(TxtTotal.Text),
+               
+            };
+        }
+
+        private string ObtenerNumero(string noDocumento, string tipo)
+        {
+            string numero;
+            if (noDocumento.Length > 0)
+            {
+                int maxsol = Convert.ToInt32(noDocumento.Split('-')[1]) + 1;
+                if (maxsol < 10)
+                    numero = tipo + "00" + maxsol;
+                else if (maxsol < 100)
+                    numero = tipo + "0" + maxsol;
+                else
+                    numero = tipo + maxsol;
+            }
+            else
+            {
+                numero = tipo + "001";
+            }
+            return numero;
+        }
+
+        public DetalleFactura GetModelDetalle()
+        {
+            var idFactura = _factura.LastIdFactura();
+            int tcid = Convert.ToInt32(CbTipoCombustible.SelectedValue);
+            var precioGalon = _listadoPreciosGalon.Where(x => x.TipoCombustibleId == tcid).FirstOrDefault();
+
+            return new DetalleFactura()
+            {
+                FacturaId = idFactura,
+                CantidadGalones = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0.00m,
+                Costo = precioGalon.Costo,
+                Precio = precioGalon.Precio,
+                Utilidad = (precioGalon.Precio - precioGalon.Utilidad),
+                SubTotal = Convert.ToDecimal(TxtTotal.Text),
+
+            };
+        }
+
     }
 }

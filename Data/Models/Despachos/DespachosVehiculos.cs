@@ -17,7 +17,7 @@ namespace Data.Models.Despachos
         public DateTime FechaDespacho { get; set; }
         public int TipoCombustibleId { get; set; }
         public long VehiculoId { get; set; }
-        public long CisternaId { get; set; }
+        public int CisternaId { get; set; }
         public decimal GalonesDespachados { get; set; }
         public decimal PrecioGalon { get; set; }
         public string Observaciones { get; set; }
@@ -107,6 +107,29 @@ namespace Data.Models.Despachos
             catch (Exception ex)
             {
                 return ex.Message;
+            }
+        }
+
+
+        public int LastIdDespacho()
+        {
+            try
+            {
+                using (var ctx = new ModelContext())
+                {
+                    var despachos = ctx.DespachosVehiculos.ToList();
+                    if (despachos.Any())
+                    {
+                        despachos = despachos.OrderByDescending(x => x.Id).ToList();
+                        return despachos.FirstOrDefault().Id;
+                    }
+                    else
+                        return 0;
+                }
+            }
+            catch
+            {
+                return 0;
             }
         }
     }

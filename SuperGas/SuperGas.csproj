@@ -154,17 +154,17 @@
     <Compile Include="Forms\modulo_Cisternas\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\modulo_Distribucion\FrmCobro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\modulo_Distribucion\FrmCobro.Designer.cs">
-      <DependentUpon>FrmCobro.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\modulo_Distribucion\FrmConfiguracion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\modulo_Distribucion\FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\modulo_Distribucion\FrmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\modulo_Distribucion\FrmFactura.Designer.cs">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\modulo_Distribucion\FrmGestionDistribucion.cs">
       <SubType>Form</SubType>
@@ -282,11 +282,11 @@
     <EmbeddedResource Include="Forms\modulo_Cisternas\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\modulo_Distribucion\FrmCobro.resx">
-      <DependentUpon>FrmCobro.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\modulo_Distribucion\FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\modulo_Distribucion\FrmFactura.resx">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\modulo_Distribucion\FrmGestionDistribucion.resx">
       <DependentUpon>FrmGestionDistribucion.cs</DependentUpon>
