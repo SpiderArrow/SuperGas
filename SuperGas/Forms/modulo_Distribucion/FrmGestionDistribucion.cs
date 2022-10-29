@@ -18,6 +18,7 @@ using Data.Mapas.Despachos;
 using Data.Models.Despachos;
 using SuperGas.Globals;
 using Data.Models.Facturas;
+using Data.Models.Usuarios;
 
 namespace SuperGas.Forms.modulo_Distribucion
 {
@@ -36,7 +37,7 @@ namespace SuperGas.Forms.modulo_Distribucion
         readonly DetalleFactura _detalleFactura = new DetalleFactura();
         private List<PrecioGalon> _listadoPreciosGalon = new List<PrecioGalon>();
         private DateTime Hoy = new DateTime();
-
+        private User user = UserLogIn.User; 
         public FrmGestionDistribucion()
         {
             InitializeComponent();
