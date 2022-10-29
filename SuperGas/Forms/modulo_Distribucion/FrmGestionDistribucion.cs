@@ -433,7 +433,7 @@ namespace SuperGas.Forms.modulo_Distribucion
                 TipoCombustibleId = Convert.ToInt32(CbTipoCombustible.SelectedValue),
                 GalonesDespachados = decimal.TryParse(TxtGalDespachar.Text, out decimal gd) ? gd : 0,
                 Observaciones = TxtObservaciones.Text,
-                UsuarioIngreso = UserLogIn.User.Id
+                UsuarioIngreso = user.Id
             };
         }
 
@@ -623,7 +623,7 @@ namespace SuperGas.Forms.modulo_Distribucion
             {
                 DespachosVehiculoId = idDespacho,
                 GasolineraId = Convert.ToInt64(CbGasolineras.SelectedValue),
-                //UserId = UserLogIn.User.Id,
+                UserId = user.Id,
                 NoFactura = txt,
                 Serie = "A",
                 FechaVenta = DtpFechaDespacho.Value,

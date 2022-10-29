@@ -216,7 +216,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Costo (Q)</Value>
+                              <Value>Costo U. (Q)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -250,7 +250,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Precio (Q)</Value>
+                              <Value>Precio U. (Q)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -581,7 +581,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=(Fields!Precio.Value*Fields!GalonesDespachados.Value)</Value>
+                              <Value>=decimal.Round((Fields!Precio.Value*Fields!GalonesDespachados.Value),2)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -613,7 +613,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=(Fields!Utilidad.Value*Fields!Utilidad.Value)</Value>
+                              <Value>=decimal.Round((Fields!Utilidad.Value*Fields!GalonesDespachados.Value),2)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -854,7 +854,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum((Fields!Utilidad.Value*Fields!GalonesDespachados.Value))</Value>
+                              <Value>=decimal.Round(Sum((Fields!Utilidad.Value*Fields!GalonesDespachados.Value)), 2)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -876,7 +876,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
