@@ -139,9 +139,6 @@
     <Compile Include="Security\ApplicationUserManager.cs" />
     <Compile Include="Security\ModelState.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="Migrations\202210270235421_m1.resx">
-      <DependentUpon>202210270235421_m1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
