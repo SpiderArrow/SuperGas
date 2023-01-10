@@ -36,7 +36,7 @@ namespace Data.Models.Vehiculos
                     {
                         Id = x.Id,
                         Descripcion = x.Descripcion,
-                        Estado = x.IsActive ? "Activa" : "Desactivada"
+                        Estado = x.IsActive ? "Activo" : "Desactivado"
                     }).ToList();
                 }
             }

@@ -51,6 +51,7 @@ namespace Data.Models.Empleados
                                      DeptoId = d.Id,
                                      MunicipioId = m.Id,
                                      RolEmpleadoId = r.Id,
+                                     Rol = r.Rol,
                                      Nombres = e.Nombres,
                                      Apellidos = e.Apellidos,
                                      Correo = e.Correo,
@@ -59,6 +60,7 @@ namespace Data.Models.Empleados
                                      Celular = e.Celular,
                                      Nit = e.Nit,
                                      DPI = e.DPI,
+                                     Edad = e.Edad,
                                      Estado = e.IsActive ? "Activo" : "Desactivado",
                                      FechaIngreso = e.FechaIngreso,
                                      FechaNacimiento = e.FechaNacimiento,
@@ -76,7 +78,7 @@ namespace Data.Models.Empleados
             }
         }
 
-        public List<MapaEmpleadoSimple> ListadoConductor()
+        public List<MapaEmpleadoSimple> ListadoByRol(string rol)
         {
             try
             {
@@ -85,7 +87,7 @@ namespace Data.Models.Empleados
                     var lista = (from e in ctx.Empleados
                                  join r in ctx.RolEmpleados on e.RolEmpleadoId equals r.Id
                                  where e.IsActive == true &&
-                                       r.Rol.ToUpper().Contains("CONDUCTOR")
+                                       r.Rol.ToUpper().Contains(rol.ToUpper())
                                  select new MapaEmpleadoSimple
                                  {
                                      Id = e.Id,

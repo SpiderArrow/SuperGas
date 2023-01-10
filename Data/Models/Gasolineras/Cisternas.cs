@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Mapas._helpers;
 using Data.Mapas.Gasolineras;
 
 namespace Data.Models.Gasolineras
@@ -38,7 +39,7 @@ namespace Data.Models.Gasolineras
                                      TipoCombustibleId = tc.Id,
                                      TipoCombustible = tc.Descripcion,
                                      GasolineraId = g.Id,
-                                     Gasolinera = tc.Descripcion,
+                                     Gasolinera = g.Nombre,
                                      Nombre = c.Descripcion,
                                      Galones = c.CantidadGalones,
                                      Actuales = c.GalonesActuales,
@@ -70,6 +71,40 @@ namespace Data.Models.Gasolineras
                                  {
                                      Id = c.Id,
                                      Descripcion = c.Descripcion
+                                 }).ToList();
+
+                    if (lista.Any())
+                        return lista;
+                    else
+                        return new List<MapaSimple>();
+                }
+            }
+            catch
+            {
+                return new List<MapaSimple>();
+            }
+        }
+
+        public List<MapaSimple> Listado(int? GasoId, int? tcId = null)
+        {
+            try
+            {
+                using (var ctx = new ModelContext())
+                {
+                    int Tipoc = tcId != null ? Convert.ToInt32(tcId) : 0;
+                    var combustibles = tcId == null ? ctx.TiposCombustibles.Select(x => x.Id).ToList() : new List<int>() { Tipoc };
+
+                    var lista = (from c in ctx.Cisternas
+                                 join g in ctx.Gasolineras on c.GasolineraId equals g.Id
+                                 join tc in ctx.TiposCombustibles on c.TipoCombustibleId equals tc.Id
+                                 where c.IsActive == true && combustibles.Contains(c.TipoCombustibleId) 
+                                                          && g.Id == GasoId
+                                 select new MapaSimple
+                                 {
+                                     Id = c.Id,
+                                     Descripcion = c.Descripcion,
+                                     GalonesActuales = c.GalonesActuales,
+                                     Galones = c.CantidadGalones
                                  }).ToList();
 
                     if (lista.Any())

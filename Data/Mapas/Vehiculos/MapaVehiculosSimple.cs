@@ -12,5 +12,8 @@ namespace Data.Mapas.Vehiculos
 
         public string DescripcionVehiculo { get; set; }
 
+        public decimal GalonesActuales { get; set; }
+        public decimal Galones { get; set; }
+
     }
 }

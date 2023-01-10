@@ -13,6 +13,9 @@ using Data.Mapas;
 using Data.Models.Empleados;
 using Data.Models.Limpieza;
 using Data.Models.Despachos;
+using Data.Models.Facturas;
+using Data.Models.Asignacion;
+using Data.Models.Entradas;
 
 namespace Data.Models
 {
@@ -27,6 +30,7 @@ namespace Data.Models
         public DbSet<Departamentos> Departamentos { get; set; }
         public DbSet<Municipios> Municipios { get; set; }
         public DbSet<Zonas> Zonas { get; set; }
+        public DbSet<Rutas> Rutas { get; set; }
 
         //GASOLINERAS
         public DbSet<Gasolinera> Gasolineras { get; set; }
@@ -52,6 +56,18 @@ namespace Data.Models
         //DESPACHOS
         public DbSet<DespachosBombas> DespachosBombas { get; set; }
         public DbSet<DespachosVehiculos> DespachosVehiculos { get; set; }
+
+        //FACTURACION
+        public DbSet<DetalleFactura> DetalleFacturas { get; set; }
+        public DbSet<Factura> Facturas{ get; set; }
+
+
+        //ASIGNACIONES
+        public DbSet<AsignacionRuta> AsignacionRutas { get; set; }
+        public DbSet<AsignacionZonas> AsignacionZonas { get; set; }
+
+        //ENTRADAS
+        public DbSet<HistorialEntradas> HistorialEntradas { get; set; }
 
 
     }

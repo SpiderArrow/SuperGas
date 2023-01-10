@@ -22,7 +22,8 @@ using SuperGas.Forms.modulo_Bombas;
 using SuperGas.Forms.modulo_Pistas;
 using SuperGas.Forms.modulo_Distribucion;
 using SuperGas.Forms.modulo_Cisternas;
-
+using SuperGas.Forms.modulo_Entradas;
+using SuperGas.Forms.modulo_Reportes;
 
 namespace SuperGas.Forms
 {
@@ -205,5 +206,33 @@ namespace SuperGas.Forms
             AbrirFormHijo(new IngresoPrecioGalon());
         }
 
+        private void Entradas_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmEntradas());
+        }
+
+
+
+
+
+        private void BtnREgresosVehiculo_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesEgresoVehiculo());
+        }
+
+        private void BtnRVentas_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesVentas());
+        }
+
+        private void BtnRIngresos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesIngreso());
+        }
+
+        private void BtnREgresosBomba_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new FrmReportesEgresoVehiculo());
+        }
     }
 }

@@ -331,7 +331,6 @@
             // 
             // TxtCelular2
             // 
-            this.TxtCelular2.Enabled = false;
             this.TxtCelular2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCelular2.Location = new System.Drawing.Point(571, 234);
             this.TxtCelular2.Name = "TxtCelular2";
@@ -372,7 +371,6 @@
             // 
             // TxtTelefono2
             // 
-            this.TxtTelefono2.Enabled = false;
             this.TxtTelefono2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTelefono2.Location = new System.Drawing.Point(571, 167);
             this.TxtTelefono2.Name = "TxtTelefono2";

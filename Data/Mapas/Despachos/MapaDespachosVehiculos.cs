@@ -12,11 +12,12 @@ namespace Data.Mapas.Despachos
         public DateTime FechaDespacho { get; set; }
         public int TipoCombustibleId { get; set; }
         public long CamionId { get; set; }
-        public long GasolineraId { get; set; }
+        public long CisternaId { get; set; }
 
         public string TipoCombustible { get; set; }
         public string Camion { get; set; }
         public string Gasolinera { get; set; }        
+        public string Cisterna { get; set; }        
 
         public decimal GalonesDespachados { get; set; }
         public string Observaciones { get; set; }

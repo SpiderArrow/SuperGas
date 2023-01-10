@@ -77,18 +77,24 @@ namespace Data.Models.Vehiculos
         }
 
 
-        public List<MapaVehiculosSimple> ListadoVehiculos()
+        public List<MapaVehiculosSimple> ListadoVehiculos(int? tcId = null)
         {
             try
             {
                 using (var ctx = new ModelContext())
                 {
+                    int Tipoc = tcId != null ? Convert.ToInt32(tcId) : 0;
+                    var combustibles = tcId == null ? ctx.TiposCombustibles.Select(x => x.Id).ToList() : new List<int>() { Tipoc };
+
                     var lista = (from v in ctx.Vehiculos
-                                 where v.IsActive == true
+                                 join tc in ctx.TiposCombustibles on v.TipoCombustibleId equals tc.Id
+                                 where v.IsActive == true && combustibles.Contains(v.TipoCombustibleId)
                                  select new MapaVehiculosSimple
                                  {
                                      Id = v.Id,
-                                     DescripcionVehiculo = v.Codigo +" | "+v.Nombre
+                                     DescripcionVehiculo = v.Codigo +" | "+v.Nombre,
+                                     GalonesActuales = v.GalonesActuales,
+                                     Galones = v.CantidadGalones
                                  }).ToList();
 
                     if (lista.Any())

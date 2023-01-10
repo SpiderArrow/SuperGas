@@ -34,11 +34,16 @@
             this.PnlPrincipal = new System.Windows.Forms.Panel();
             this.DgvRegistros = new System.Windows.Forms.DataGridView();
             this.TsUsuarios = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TxtBuscador = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.BtnCargar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.BtnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BtnEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BtnConfiguracion = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.PnlFormulario = new System.Windows.Forms.Panel();
@@ -54,11 +59,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.BtnCargar = new System.Windows.Forms.ToolStripButton();
-            this.BtnEditar = new System.Windows.Forms.ToolStripButton();
-            this.BtnEliminar = new System.Windows.Forms.ToolStripButton();
-            this.BtnConfiguracion = new System.Windows.Forms.ToolStripButton();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -132,6 +132,14 @@
             this.TsUsuarios.TabIndex = 29;
             this.TsUsuarios.Text = "toolStrip1";
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Image = global::SuperGas.Properties.Resources.Search_16x;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(94, 24);
+            this.toolStripLabel1.Text = "Buscador";
+            // 
             // TxtBuscador
             // 
             this.TxtBuscador.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,20 +152,58 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
+            // BtnCargar
+            // 
+            this.BtnCargar.Image = global::SuperGas.Properties.Resources.Refresh_16x;
+            this.BtnCargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnCargar.Name = "BtnCargar";
+            this.BtnCargar.Size = new System.Drawing.Size(149, 24);
+            this.BtnCargar.Text = "Cargar Registros";
+            this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            // 
+            // BtnEditar
+            // 
+            this.BtnEditar.Image = global::SuperGas.Properties.Resources.EditDocument_16x;
+            this.BtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(70, 24);
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.ToolTipText = "Editar";
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+            // BtnEliminar
+            // 
+            this.BtnEliminar.Image = global::SuperGas.Properties.Resources.Close_red_16x;
+            this.BtnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(83, 24);
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.ToolTipText = "Eliminar";
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // BtnConfiguracion
+            // 
+            this.BtnConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("BtnConfiguracion.Image")));
+            this.BtnConfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnConfiguracion.Name = "BtnConfiguracion";
+            this.BtnConfiguracion.Size = new System.Drawing.Size(134, 24);
+            this.BtnConfiguracion.Text = "Configuración";
+            this.BtnConfiguracion.Click += new System.EventHandler(this.BtnConfiguracion_Click);
             // 
             // toolStripSeparator4
             // 
@@ -217,6 +263,7 @@
             this.TxtGlTotal.Size = new System.Drawing.Size(315, 26);
             this.TxtGlTotal.TabIndex = 160;
             this.TxtGlTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtGlTotal.TextChanged += new System.EventHandler(this.TxtGlTotal_TextChanged);
             this.TxtGlTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDecimal_KeyPress);
             // 
             // label7
@@ -319,52 +366,6 @@
             this.label15.Size = new System.Drawing.Size(130, 21);
             this.label15.TabIndex = 144;
             this.label15.Text = "Observaciones:";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.Image = global::SuperGas.Properties.Resources.Search_16x;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(94, 24);
-            this.toolStripLabel1.Text = "Buscador";
-            // 
-            // BtnCargar
-            // 
-            this.BtnCargar.Image = global::SuperGas.Properties.Resources.Refresh_16x;
-            this.BtnCargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnCargar.Name = "BtnCargar";
-            this.BtnCargar.Size = new System.Drawing.Size(149, 24);
-            this.BtnCargar.Text = "Cargar Registros";
-            this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click);
-            // 
-            // BtnEditar
-            // 
-            this.BtnEditar.Image = global::SuperGas.Properties.Resources.EditDocument_16x;
-            this.BtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(70, 24);
-            this.BtnEditar.Text = "Editar";
-            this.BtnEditar.ToolTipText = "Editar";
-            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
-            // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.Image = global::SuperGas.Properties.Resources.Close_red_16x;
-            this.BtnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(83, 24);
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.ToolTipText = "Eliminar";
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
-            // 
-            // BtnConfiguracion
-            // 
-            this.BtnConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("BtnConfiguracion.Image")));
-            this.BtnConfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnConfiguracion.Name = "BtnConfiguracion";
-            this.BtnConfiguracion.Size = new System.Drawing.Size(134, 24);
-            this.BtnConfiguracion.Text = "Configuración";
-            this.BtnConfiguracion.Click += new System.EventHandler(this.BtnConfiguracion_Click);
             // 
             // BtnCancelar
             // 

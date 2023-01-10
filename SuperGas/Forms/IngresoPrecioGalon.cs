@@ -18,17 +18,17 @@ namespace SuperGas.Forms
     public partial class IngresoPrecioGalon : Form
     {
         readonly DateTime Hoy = new DateTime();
-        readonly PrecioGalon _precioGalon = new PrecioGalon();        
+        readonly PrecioGalon _precioGalon = new PrecioGalon();
         readonly TipoCombustible _tipoCombustible = new TipoCombustible();
         public List<MapaPrecioGalon> listado = new List<MapaPrecioGalon>();
         public decimal Precio = 0.00m;
-        
+
 
         public IngresoPrecioGalon()
         {
             InitializeComponent();
             CargarTipoCombustible();
-
+            PreciosAyer();
             TimeSpan time = new TimeSpan(0, 0, 0);
             Hoy = DateTime.Now.Date + time;
         }
@@ -63,7 +63,7 @@ namespace SuperGas.Forms
                 if (!ValidarPrecioGalon())
                 {
                     string mensaje = ValidarCampos();
-                    if (mensaje.Length > 0)
+                    if (mensaje.Length == 0)
                     {
                         ActivarCampos(false);
                         Precio = Convert.ToDecimal(TxtPrecio.Text);
@@ -79,6 +79,7 @@ namespace SuperGas.Forms
                         {
                             MessageBox.Show("¡Cambios guardados exitosamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LimpiarCampos();
+                            ResetCombo();
                             CargarDgv();
                         }
                         else
@@ -114,9 +115,6 @@ namespace SuperGas.Forms
 
         private void CheckAyer_CheckedChanged(object sender, EventArgs e)
         {
-            TxtPrecio.Enabled = !CheckAyer.Checked;
-            CbTipoCombustible.Enabled = !CheckAyer.Checked;
-
             if (CheckAyer.Checked)
             {
                 int tcId = int.TryParse(CbTipoCombustible.SelectedValue + "", out int id) ? id : 0;
@@ -128,8 +126,8 @@ namespace SuperGas.Forms
                     TxtCosto.Text = preciogalon.Costo + "";
                     TxtUtilidad.Text = preciogalon.Utilidad + "";
                 }
-                    
-            }                
+
+            }
         }
 
         public void CargarDgv()
@@ -164,8 +162,11 @@ namespace SuperGas.Forms
             TxtCosto.Text = "";
             TxtPrecio.Text = "";
             TxtUtilidad.Text = "";
+        }
 
-            if(CbTipoCombustible.Items.Count > 0)
+        public void ResetCombo()
+        {
+            if (CbTipoCombustible.Items.Count > 0)
                 CbTipoCombustible.SelectedIndex = 0;
             CbTipoCombustible.Invalidate();
         }
@@ -174,18 +175,22 @@ namespace SuperGas.Forms
         {
             TxtCosto.Enabled = activar;
             TxtPrecio.Enabled = activar;
-            TxtUtilidad.Enabled = activar;
             CbTipoCombustible.Enabled = activar;
             BtnGuardar.Enabled = activar;
         }
 
         public string ValidarCampos() {
-            if (TxtCosto.Text.Length > 0)
+            decimal precio = decimal.TryParse(TxtPrecio.Text, out decimal p) ? p : 0.00m;
+            decimal costo = decimal.TryParse(TxtCosto.Text, out decimal c) ? c : 0.00m;
+
+            if (TxtCosto.Text.Length == 0)
                 return "Debe ingresar un costo de galón";
-            else if (TxtPrecio.Text.Length > 0)
+            else if (TxtPrecio.Text.Length == 0)
                 return "Debe ingresar un precio de galón";
             else if (CbTipoCombustible.SelectedValue == null)
                 return "Debe seleccionar un tipo de Combustible";
+            else if (costo > precio)
+                return "El costo no puede ser mayor que el precio";
             else
                 return "";
         
@@ -202,7 +207,7 @@ namespace SuperGas.Forms
                 if (Getpre != null)
                 {
                     var dialog =
-                            MessageBox.Show("¡Esta seguro que desea eliminar el Precio de Galon!", "Eliminar Producto",
+                            MessageBox.Show("¡Esta seguro que desea eliminar el Precio de Galon!", "Eliminar Precio Galon",
                             MessageBoxButtons.YesNoCancel,
                             MessageBoxIcon.Question);
 
@@ -237,12 +242,30 @@ namespace SuperGas.Forms
         {
             decimal precio = decimal.TryParse(TxtPrecio.Text, out decimal p) ? p : 0.00m;
             decimal costo = decimal.TryParse(TxtCosto.Text, out decimal c) ? c : 0.00m;
-
+  
             if (costo > precio)
-                MessageBox.Show("¡El costo no puede ser mayor que el precio!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);             
+                Error.SetError(TxtCosto, "¡El costo no puede ser mayor que el precio!");
             else
+            {
+                Error.SetError(TxtCosto, "");
                 TxtUtilidad.Text = (precio - costo).ToString();
+            }               
 
+        }
+
+        public void PreciosAyer()
+        {
+            TimeSpan time = new TimeSpan(0, 0, 0);
+            DateTime ayer = DateTime.Now.AddDays(-1).Date + time;
+            var listado = _precioGalon.GetByFecha(ayer);
+            if (listado.Any())
+                CheckAyer.Visible = true;
+        }
+
+        private void CbTipoCombustible_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            CheckAyer.Checked = false;
         }
     }
 }

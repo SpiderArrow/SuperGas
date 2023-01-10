@@ -14,6 +14,7 @@ namespace Data.Mapas.Empleados
         public int? DeptoId { get; set; }
         public int? MunicipioId { get; set; }
 
+        public string Rol { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Correo { get; set; }

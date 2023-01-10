@@ -11,5 +11,7 @@ namespace Data.Mapas.Gasolineras
         public long Id { get; set; }
 
         public string Descripcion { get; set; }
+        public decimal GalonesActuales { get; set; }
+        public decimal Galones { get; set; }
     }
 }

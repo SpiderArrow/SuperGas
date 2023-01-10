@@ -37,8 +37,9 @@ namespace SuperGas.Forms.modulo_Empleado
         {
             string txt1 = TxtBuscador.Text.ToUpper();
             var filter = listado.Where(x => x.Nombres.ToUpper().Contains(txt1) ||
-                                            x.Apellidos.Contains(txt1) ||
-                                            x.CodigoEmpleado.ToUpper().Contains(txt1));
+                                            x.Apellidos.ToUpper().Contains(txt1) ||
+                                            x.CodigoEmpleado.ToUpper().Contains(txt1) ||
+                                            x.Rol.ToUpper().Contains(txt1));
             DgvRegistros.DataSource = filter.ToList();
         }
 
@@ -192,6 +193,7 @@ namespace SuperGas.Forms.modulo_Empleado
                 DgvRegistros.Columns[1].Visible = false;
                 DgvRegistros.Columns[2].Visible = false;
                 DgvRegistros.Columns[3].Visible = false;
+                DgvRegistros.Columns[4].Visible = false;
             }
         }
 
